@@ -16,6 +16,7 @@ namespace HealthCareMonitoring.Shared.Domain
         public virtual Hospital? Hospital { get; set; }
         public string? Description { get; set; }
         public float? ConsultationFee{ get; set; }
-        public DateTime DateTime { get; set; }
+        public DateTime StartDateTime { get; set; }
+        public DateTime EndDateTime { get; set; }
     }
 }
