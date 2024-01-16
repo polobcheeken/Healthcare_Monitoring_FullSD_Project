@@ -23,5 +23,6 @@ namespace HealthCareMonitoring.Server.Data
         public DbSet<Prescription> Prescriptions { get; set; }
         public DbSet<PrescriptionItem> PrescriptionItems { get; set; }
         public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Payment> Payments { get; set; }
     }
 }

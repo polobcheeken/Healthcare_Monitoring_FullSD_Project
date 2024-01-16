@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthCareMonitoring.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240116171110_AddApplicationTables")]
-    partial class AddApplicationTables
+    [Migration("20240116172537_CreateDatabase")]
+    partial class CreateDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -237,6 +237,355 @@ namespace HealthCareMonitoring.Server.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Appointment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("HospitalId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PlannedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("StaffId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HospitalId");
+
+                    b.HasIndex("PatientId");
+
+                    b.HasIndex("StaffId");
+
+                    b.ToTable("Appointments");
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Consultation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("AppointmentId")
+                        .HasColumnType("int");
+
+                    b.Property<float?>("ConsultationFee")
+                        .HasColumnType("real");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("HospitalId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("StaffId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppointmentId");
+
+                    b.HasIndex("HospitalId");
+
+                    b.HasIndex("StaffId");
+
+                    b.ToTable("Consultations");
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Hospital", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Hospitals");
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Medicine", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MedicineFee")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Medicines");
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Patient", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ContactNo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateYearJoined")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Patients");
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Prescription", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ConsultationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ConsultationId");
+
+                    b.ToTable("Prescriptions");
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.PrescriptionItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("MedicineId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MedicineQty")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PrescriptionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MedicineId");
+
+                    b.HasIndex("PrescriptionId");
+
+                    b.ToTable("PrescriptionItems");
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Staff", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ContactNo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateTimeJoined")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EmailAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("HospitalId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float?>("Salary")
+                        .HasColumnType("real");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HospitalId");
+
+                    b.ToTable("Staffs");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -374,6 +723,81 @@ namespace HealthCareMonitoring.Server.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Appointment", b =>
+                {
+                    b.HasOne("HealthCareMonitoring.Shared.Domain.Hospital", "Hospital")
+                        .WithMany()
+                        .HasForeignKey("HospitalId");
+
+                    b.HasOne("HealthCareMonitoring.Shared.Domain.Patient", "Patient")
+                        .WithMany("Appointments")
+                        .HasForeignKey("PatientId");
+
+                    b.HasOne("HealthCareMonitoring.Shared.Domain.Staff", "Staff")
+                        .WithMany()
+                        .HasForeignKey("StaffId");
+
+                    b.Navigation("Hospital");
+
+                    b.Navigation("Patient");
+
+                    b.Navigation("Staff");
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Consultation", b =>
+                {
+                    b.HasOne("HealthCareMonitoring.Shared.Domain.Appointment", "Appointment")
+                        .WithMany()
+                        .HasForeignKey("AppointmentId");
+
+                    b.HasOne("HealthCareMonitoring.Shared.Domain.Hospital", "Hospital")
+                        .WithMany()
+                        .HasForeignKey("HospitalId");
+
+                    b.HasOne("HealthCareMonitoring.Shared.Domain.Staff", "Staff")
+                        .WithMany()
+                        .HasForeignKey("StaffId");
+
+                    b.Navigation("Appointment");
+
+                    b.Navigation("Hospital");
+
+                    b.Navigation("Staff");
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Prescription", b =>
+                {
+                    b.HasOne("HealthCareMonitoring.Shared.Domain.Consultation", "Consultation")
+                        .WithMany()
+                        .HasForeignKey("ConsultationId");
+
+                    b.Navigation("Consultation");
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.PrescriptionItem", b =>
+                {
+                    b.HasOne("HealthCareMonitoring.Shared.Domain.Medicine", "Medicine")
+                        .WithMany()
+                        .HasForeignKey("MedicineId");
+
+                    b.HasOne("HealthCareMonitoring.Shared.Domain.Prescription", "Prescription")
+                        .WithMany("PrescriptionItems")
+                        .HasForeignKey("PrescriptionId");
+
+                    b.Navigation("Medicine");
+
+                    b.Navigation("Prescription");
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Staff", b =>
+                {
+                    b.HasOne("HealthCareMonitoring.Shared.Domain.Hospital", "Hospital")
+                        .WithMany()
+                        .HasForeignKey("HospitalId");
+
+                    b.Navigation("Hospital");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -423,6 +847,16 @@ namespace HealthCareMonitoring.Server.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Patient", b =>
+                {
+                    b.Navigation("Appointments");
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Prescription", b =>
+                {
+                    b.Navigation("PrescriptionItems");
                 });
 #pragma warning restore 612, 618
         }
