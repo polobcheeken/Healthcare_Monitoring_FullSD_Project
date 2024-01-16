@@ -56,25 +56,6 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label>Date Booked: </label>
-            <div>
-                <InputDate @bind-Value="@appointment.BookedDateTime" class="form-control" />
-                <ValidationMessage For="@(() => appointment.BookedDateTime)" />
-            </div>
-        </div>
-
-        @if (appointment.Id > 0)
-        {
-            <div class="form-group">
-                <label>Date Started: </label>
-                <div>
-                    <InputDate @bind-Value="@appointment.StartDateTime" class="form-control" />
-                    <ValidationMessage For="@(() => appointment.StartDateTime)" />
-                </div>
-            </div>
-        }
-
         <br />
         <br />
     </fieldset>>

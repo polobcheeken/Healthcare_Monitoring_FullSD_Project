@@ -23,4 +23,14 @@
     <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Pages\Hospitals\" />
+    <Folder Include="Pages\Medicines\" />
+    <Folder Include="Pages\Patients\" />
+    <Folder Include="Pages\PrescriptionItems\" />
+    <Folder Include="Pages\Prescriptions\" />
+    <Folder Include="Pages\Staffs\" />
+  </ItemGroup>
+
 </Project>

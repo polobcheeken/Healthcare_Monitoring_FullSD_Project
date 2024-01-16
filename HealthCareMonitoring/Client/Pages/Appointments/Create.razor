@@ -15,11 +15,13 @@
 
     private IList<Staff>? Staffs;
     private IList<Patient>? Patients;
+    private IList<Hospital>? Hospitals;
 
     protected async override Task OnInitializedAsync()
     {
         Staffs = await _client.GetFromJsonAsync<List<Staff>>($"{Endpoints.StaffsEndpoint}");
         Patients = await _client.GetFromJsonAsync<List<Patient>>($"{Endpoints.PatientsEndpoint}");
+        Hospitals = await _client.GetFromJsonAsync<List<Hospital>>($"{Endpoints.HospitalsEndpoint}");
     }
 
     private async Task CreateAppointment()

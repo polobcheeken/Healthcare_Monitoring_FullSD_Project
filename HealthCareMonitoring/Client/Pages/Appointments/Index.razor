@@ -27,7 +27,7 @@ else
                 <th>Staff Name</th>
                 <th>Patient Name</th>
                 <th>Hospital</th>
-                <th>Time of Booking</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -38,7 +38,7 @@ else
                     <td>@appointment.Staff.FirstName @appointment.Staff.LastName</td>
                     <td>@appointment.Patient.FirstName @appointment.Patient.LastName</td>
                     <td>@appointment.Hospital.Name</td>
-                    <td>@appointment.BookedDateTime.Date.ToString("dd MMMM yyyy")</td>
+                    
 
                     <td>
                         <a href="/appointments/view/@appointment.Id" class="btn btn-primary">
