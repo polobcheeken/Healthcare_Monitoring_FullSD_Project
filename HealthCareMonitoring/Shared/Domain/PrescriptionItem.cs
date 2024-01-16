@@ -12,6 +12,6 @@ namespace HealthCareMonitoring.Shared.Domain
         public int? PrescriptionId { get; set; }
         public virtual Medicine? Medicine { get; set; }
         public int? MedicineId { get; set; }
-        public int? MedicineQty { get; set; }
+        public int? MedicineQty { get; set; } //may need to give this more parameters
     }
 }

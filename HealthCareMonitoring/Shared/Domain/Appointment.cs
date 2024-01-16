@@ -14,7 +14,7 @@ namespace HealthCareMonitoring.Shared.Domain
         public virtual Patient? Patient { get; set; }
         public int? HospitalId { get; set; }
         public virtual Hospital? Hospital { get; set; }
-        public DateTime StartDateTime { get; set; }
+        public DateTime StartDateTime { get; set; } //rmb to remove this soon
         public DateTime BookedDateTime { get; set; }
 
     }

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCareMonitoring.Server", "HealthCareMonitoring\Server\HealthCareMonitoring.Server.csproj", "{CBC26F13-4759-4A1A-9502-0B40147B7E7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCareMonitoring.Server", "HealthCareMonitoring\Server\HealthCareMonitoring.Server.csproj", "{CBC26F13-4759-4A1A-9502-0B40147B7E7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCareMonitoring.Client", "HealthCareMonitoring\Client\HealthCareMonitoring.Client.csproj", "{E020DD70-F928-4359-8ADE-2B870AA604BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCareMonitoring.Client", "HealthCareMonitoring\Client\HealthCareMonitoring.Client.csproj", "{E020DD70-F928-4359-8ADE-2B870AA604BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthCareMonitoring.Shared", "HealthCareMonitoring\Shared\HealthCareMonitoring.Shared.csproj", "{DE562654-1185-40A8-9BC9-625E4C883CFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCareMonitoring.Shared", "HealthCareMonitoring\Shared\HealthCareMonitoring.Shared.csproj", "{DE562654-1185-40A8-9BC9-625E4C883CFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

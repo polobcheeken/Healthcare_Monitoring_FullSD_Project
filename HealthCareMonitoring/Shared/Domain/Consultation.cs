@@ -17,5 +17,7 @@ namespace HealthCareMonitoring.Shared.Domain
         public string? Description { get; set; }
         public float? ConsultationFee{ get; set; }
         public DateTime DateTime { get; set; }
+
+        //might add consultation length, start and end of consultation
     }
 }
