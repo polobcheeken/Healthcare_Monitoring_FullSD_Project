@@ -8,8 +8,8 @@ namespace HealthCareMonitoring.Shared.Domain
 {
     public class Prescription : BaseDomainModel 
     {
-        public virtual Consultation? Consultation { get; set; }
         public int? ConsultationId { get; set; }
+        public virtual Consultation? Consultation { get; set; }
         public string? Description { get; set; }
         public virtual List<PrescriptionItem> PrescriptionItems { get; set; }
 
