@@ -9,7 +9,7 @@ namespace HealthCareMonitoring.Shared.Domain
     public class Staff : BaseDomainModel
     {
         public virtual Hospital? Hospital { get; set; }
-        public int HospitalID { get; set; }
+        public int HospitalId { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set;}
         public int ContactNo { get; set; }
