@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿using CarRentalManagement.Server.Repository;
-=======
-﻿using HealthCareMonitoring.Server.Repository;
->>>>>>> 5eb0dad489109e8062baaa3f6fb89913533d6b0d
+using CarRentalManagement.Server.Repository;
 using HealthCareMonitoring.Shared.Domain;
 using System.Drawing;
 

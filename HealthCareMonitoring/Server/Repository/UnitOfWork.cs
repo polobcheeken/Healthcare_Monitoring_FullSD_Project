@@ -24,10 +24,6 @@ namespace HealthCareMonitoring.Server.Repository
         private IGenericRepository<Payment> _payments;
 
         private UserManager<ApplicationUser> _userManager;
-<<<<<<< HEAD
-=======
-        
->>>>>>> 5eb0dad489109e8062baaa3f6fb89913533d6b0d
 
         public UnitOfWork(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
@@ -52,11 +48,7 @@ namespace HealthCareMonitoring.Server.Repository
         public IGenericRepository<Staff> Staffs
             => _staffs ??= new GenericRepository<Staff>(_context);
         public IGenericRepository<Payment> Payments
-<<<<<<< HEAD
            => _payments ??= new GenericRepository<Payment>(_context);
-=======
-            => _payments ??= new GenericRepository<Payment>(_context);
->>>>>>> 5eb0dad489109e8062baaa3f6fb89913533d6b0d
 
         public void Dispose()
         {

@@ -13,12 +13,7 @@ namespace HealthCareMonitoring.Shared.Domain
         public virtual Patient? Patient { get; set; }
         public int? PatientId { get; set; }
         public virtual Hospital? Hospital { get; set; }
-<<<<<<< HEAD
         public int? HospitalId { get; set; }
         public DateTime PlannedDateTime { get; set; }
-=======
-        public DateTime PlannedDateTime { get; set; }
-
->>>>>>> 5eb0dad489109e8062baaa3f6fb89913533d6b0d
     }
 }

@@ -3,11 +3,7 @@ using System.Net;
 using System.Runtime.CompilerServices;
 using Toolbelt.Blazor;
 
-<<<<<<< HEAD
 namespace CarRentalManagement1.Client.Services
-=======
-namespace HealthCareMonitoring.Client.Services
->>>>>>> 5eb0dad489109e8062baaa3f6fb89913533d6b0d
 {
     public class HttpInterceptorService
     {
