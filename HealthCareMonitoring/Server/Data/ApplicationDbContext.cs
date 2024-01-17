@@ -1,4 +1,5 @@
 ﻿using Duende.IdentityServer.EntityFramework.Options;
+using HealthCareMonitoring.Server.Configurations.Entities;
 using HealthCareMonitoring.Server.Models;
 using HealthCareMonitoring.Shared.Domain;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
@@ -23,5 +24,17 @@ namespace HealthCareMonitoring.Server.Data
         public DbSet<PrescriptionItem> PrescriptionItems { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<Payment> Payments { get; set; }
-    }
+
+		protected override void OnModelCreating(ModelBuilder builder)
+		{
+			base.OnModelCreating(builder);
+
+			builder.ApplyConfiguration(new HospitalSeedConfiguration());
+			builder.ApplyConfiguration(new MedicineSeedConfiguration());
+			builder.ApplyConfiguration(new RoleSeedConfiguration());
+			builder.ApplyConfiguration(new UserRoleSeedConfiguration());
+			builder.ApplyConfiguration(new UserSeedConfiguration());
+
+		}
+	}
 }
