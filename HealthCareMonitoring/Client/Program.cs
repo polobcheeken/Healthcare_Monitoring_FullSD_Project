@@ -1,5 +1,5 @@
-using HealthCareMonitoring.Client;
 using HealthCareMonitoring.Client.Services;
+using HealthCareMonitoring.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;

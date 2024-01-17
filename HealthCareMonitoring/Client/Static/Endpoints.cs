@@ -13,7 +13,6 @@
         public static readonly string PrescriptionEndpoint = $"{Prefix}/prescriptions";
         public static readonly string PrescriptionItemsEndpoint = $"{Prefix}/prescriptionitems";
         public static readonly string StaffsEndpoint = $"{Prefix}/staffs";
-        public static readonly string PaymentsEndpoint = $"{Prefix}/payments";
     }
 
 
