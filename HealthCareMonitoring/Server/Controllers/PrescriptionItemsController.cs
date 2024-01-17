@@ -7,54 +7,54 @@ namespace HealthCareMonitoring.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PrescriptionItemssController : ControllerBase
+    public class PrescriptionItemsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
-        public PrescriptionItemssController(IUnitOfWork unitOfWork)
+        public PrescriptionItemsController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        // GET: api/PrescriptionItemss
+        // GET: api/PrescriptionItems
         [HttpGet]
-        public async Task<IActionResult> GetPrescriptionItemss()
+        public async Task<IActionResult> GetPrescriptionItems()
         {
             if (_unitOfWork.PrescriptionItems == null)
             {
                 return NotFound();
             }
-            var prescriptionitemss = await _unitOfWork.PrescriptionItems.GetAll();
-            return Ok(prescriptionitemss);
-        }
-
-        // GET: api/PrescriptionItemss/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetPrescriptionItemss(int id)
-        {
-            if (_unitOfWork.PrescriptionItems == null)
-            {
-                return NotFound();
-            }
-            var prescriptionitems = await _unitOfWork.PrescriptionItems.Get(q => q.Id == id);
-
-            if (prescriptionitems == null)
-            {
-                return NotFound();
-            }
-
+            var prescriptionitems = await _unitOfWork.PrescriptionItems.GetAll();
             return Ok(prescriptionitems);
         }
 
-        // PUT: api/PrescriptionItemss/5
+        // GET: api/PrescriptionItems/5
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetPrescriptionItems(int id)
+        {
+            if (_unitOfWork.PrescriptionItems == null)
+            {
+                return NotFound();
+            }
+            var prescriptionitem = await _unitOfWork.PrescriptionItems.Get(q => q.Id == id);
+
+            if (prescriptionitem == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(prescriptionitem);
+        }
+
+        // PUT: api/PrescriptionItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPrescriptionItems(int id, PrescriptionItem prescriptionitems)
+        public async Task<IActionResult> PutPrescriptionItem(int id, PrescriptionItem prescriptionitem)
         {
-            if (id != prescriptionitems.Id)
+            if (id != prescriptionitem.Id)
             {
                 return BadRequest();
             }
-            _unitOfWork.PrescriptionItems.Update(prescriptionitems);
+            _unitOfWork.PrescriptionItems.Update(prescriptionitem);
 
             try
             {
@@ -63,7 +63,7 @@ namespace HealthCareMonitoring.Server.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!await PrescriptionItemsExists(id))
+                if (!await PrescriptionItemExists(id))
                 {
                     return NotFound();
                 }
@@ -79,23 +79,23 @@ namespace HealthCareMonitoring.Server.Controllers
         // POST: api/PrescriptionItemss
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<PrescriptionItem>> PostPrescriptionItems(PrescriptionItem prescriptionitems)
+        public async Task<ActionResult<PrescriptionItem>> PostPrescriptionItem(PrescriptionItem prescriptionitem)
         {
             if (_unitOfWork.PrescriptionItems == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.PrescriptionItemss'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.PrescriptionItems'  is null.");
             }
-            await _unitOfWork.PrescriptionItems.Insert(prescriptionitems);
+            await _unitOfWork.PrescriptionItems.Insert(prescriptionitem);
             await _unitOfWork.Save(HttpContext);
-            return CreatedAtAction("GetPrescriptionItems", new { id = prescriptionitems.Id }, prescriptionitems);
+            return CreatedAtAction("GetPrescriptionItems", new { id = prescriptionitem.Id }, prescriptionitem);
         }
 
         // DELETE: api/PrescriptionItemss/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePrescriptionItems(int id)
+        public async Task<IActionResult> DeletePrescriptionItem(int id)
         {
-            var prescriptionitems = await _unitOfWork.PrescriptionItems.Get(q => q.Id == id);
-            if (prescriptionitems == null)
+            var prescriptionitem = await _unitOfWork.PrescriptionItems.Get(q => q.Id == id);
+            if (prescriptionitem == null)
             {
                 return NotFound();
             }
@@ -105,10 +105,10 @@ namespace HealthCareMonitoring.Server.Controllers
             return NoContent();
         }
 
-        private async Task<bool> PrescriptionItemsExists(int id)
+        private async Task<bool> PrescriptionItemExists(int id)
         {
-            var prescriptionitems = await _unitOfWork.PrescriptionItems.Get(q => q.Id == id);
-            return prescriptionitems != null;
+            var prescriptionitem = await _unitOfWork.PrescriptionItems.Get(q => q.Id == id);
+            return prescriptionitem != null;
         }
     }
 }

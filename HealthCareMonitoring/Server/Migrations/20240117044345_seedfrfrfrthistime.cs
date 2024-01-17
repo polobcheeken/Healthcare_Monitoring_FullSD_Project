@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace HealthCareMonitoring.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class seedhosandmed : Migration
+    public partial class seedfrfrfrthistime : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -139,7 +141,7 @@ namespace HealthCareMonitoring.Server.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ContactNo = table.Column<int>(type: "int", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateYearJoined = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -461,6 +463,45 @@ namespace HealthCareMonitoring.Server.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "ad2bcf0c-20db-474f-8407-5a6b159518ba", null, "Administrator", "ADMINISTRATOR" },
+                    { "bd2bcf0c-20db-474f-8407-5a6b159518bb", null, "User", "USER" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "a21fe60f-ca34-4b55-abb4-b06101521a83", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEFM5q1wA5TzjbACYCVMTCopeXN22XxoH9RKkJMpytL1QNN7pyvcXg4e4D2LwNqxq7A==", null, false, "8054c26e-75b4-44c4-9fdf-ea365582f0b5", false, "admin@localhost.com" });
+
+            migrationBuilder.InsertData(
+                table: "Hospitals",
+                columns: new[] { "Id", "Address", "CreatedBy", "DateCreated", "DateUpdated", "Description", "Name", "UpdatedBy" },
+                values: new object[,]
+                {
+                    { 1, "100 Bukit Timah Road", "System", new DateTime(2024, 1, 17, 12, 43, 45, 631, DateTimeKind.Local).AddTicks(6693), new DateTime(2024, 1, 17, 12, 43, 45, 631, DateTimeKind.Local).AddTicks(6703), null, "KK Women’s and Children’s Hospital", "System" },
+                    { 2, "Outram Road", "System", new DateTime(2024, 1, 17, 12, 43, 45, 631, DateTimeKind.Local).AddTicks(6705), new DateTime(2024, 1, 17, 12, 43, 45, 631, DateTimeKind.Local).AddTicks(6706), null, "Singapore General Hospital", "System" },
+                    { 3, "Napier Road", "System", new DateTime(2024, 1, 17, 12, 43, 45, 631, DateTimeKind.Local).AddTicks(6707), new DateTime(2024, 1, 17, 12, 43, 45, 631, DateTimeKind.Local).AddTicks(6707), null, "Gleneagles Hospital", "System" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Medicines",
+                columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "Description", "ExpiryDate", "MedicineFee", "Name", "StartDate", "Type", "UpdatedBy" },
+                values: new object[,]
+                {
+                    { 1, "System", new DateTime(2024, 1, 17, 12, 43, 45, 631, DateTimeKind.Local).AddTicks(6988), new DateTime(2024, 1, 17, 12, 43, 45, 631, DateTimeKind.Local).AddTicks(6989), "Used for headaches", null, 5, "Paracetamol", null, "Tablet", "System" },
+                    { 2, "System", new DateTime(2024, 1, 17, 12, 43, 45, 631, DateTimeKind.Local).AddTicks(6991), new DateTime(2024, 1, 17, 12, 43, 45, 631, DateTimeKind.Local).AddTicks(6991), "Strong Painkiller, Only used when needed", null, 5, "Ibuprofen", null, "Tablet", "System" },
+                    { 3, "System", new DateTime(2024, 1, 17, 12, 43, 45, 631, DateTimeKind.Local).AddTicks(6993), new DateTime(2024, 1, 17, 12, 43, 45, 631, DateTimeKind.Local).AddTicks(6993), "Used to treat anxiety disorders", null, 5, "Xanax", null, "Pill", "System" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "ad2bcf0c-20db-474f-8407-5a6b159518ba", "3781efa7-66dc-47f0-860f-e506d04102e4" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_HospitalId",

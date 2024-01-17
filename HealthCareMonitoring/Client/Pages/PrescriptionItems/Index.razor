@@ -4,19 +4,19 @@
 @attribute [Authorize]
 @implements IDisposable
 
-<h3 class="card-title">Healthcare PrescriptionItems</h3>
+<h3 class="card-title">Healthcare Prescription Items</h3>
 <br />
 
 <a href="/prescriptionitems/create" class="btn btn-secondary">
     <span class="oi oi-plus"></span>
-    Create New PrescriptionItem
+    Create New Prescription Item
 </a>
 <br />
 <br />
 
 @if (PrescriptionItems == null)
 {
-    <div class="alert alert-info">Loading PrescriptionItems...</div>
+    <div class="alert alert-info">Loading Prescription Items...</div>
 }
 else
 {
@@ -24,7 +24,6 @@ else
         <thead>
             <tr>
                 <th>PrescriptionItem Id</th>
-                <th>Medicine</th>>
                 <th>Medicine Quantity</th>>
                 <th>Actions</th>
                 
@@ -36,7 +35,6 @@ else
             {
                 <tr>
                     <td>@prescriptionitem.Id</td>
-                    <td>@prescriptionitem.Medicine.Name</td>
                     <td>@prescriptionitem.MedicineQty</td>
 
 					<td>
