@@ -5,9 +5,9 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCareMonitoring.Server", "HealthCareMonitoring\Server\HealthCareMonitoring.Server.csproj", "{CBC26F13-4759-4A1A-9502-0B40147B7E7E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCareMonitoring.Shared", "HealthCareMonitoring\Shared\HealthCareMonitoring.Shared.csproj", "{DE562654-1185-40A8-9BC9-625E4C883CFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCareMonitoring.Client", "HealthCareMonitoring\Client\HealthCareMonitoring.Client.csproj", "{E020DD70-F928-4359-8ADE-2B870AA604BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCareMonitoring.Client", "HealthCareMonitoring\Client\HealthCareMonitoring.Client.csproj", "{FBECA7F7-8673-4F13-8DEE-A83937508450}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthCareMonitoring.Shared", "HealthCareMonitoring\Shared\HealthCareMonitoring.Shared.csproj", "{DE562654-1185-40A8-9BC9-625E4C883CFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{CBC26F13-4759-4A1A-9502-0B40147B7E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBC26F13-4759-4A1A-9502-0B40147B7E7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBC26F13-4759-4A1A-9502-0B40147B7E7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E020DD70-F928-4359-8ADE-2B870AA604BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E020DD70-F928-4359-8ADE-2B870AA604BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E020DD70-F928-4359-8ADE-2B870AA604BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E020DD70-F928-4359-8ADE-2B870AA604BE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DE562654-1185-40A8-9BC9-625E4C883CFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DE562654-1185-40A8-9BC9-625E4C883CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE562654-1185-40A8-9BC9-625E4C883CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE562654-1185-40A8-9BC9-625E4C883CFA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FBECA7F7-8673-4F13-8DEE-A83937508450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FBECA7F7-8673-4F13-8DEE-A83937508450}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FBECA7F7-8673-4F13-8DEE-A83937508450}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FBECA7F7-8673-4F13-8DEE-A83937508450}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
