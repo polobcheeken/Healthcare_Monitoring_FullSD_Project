@@ -10,9 +10,10 @@
         public static readonly string HospitalsEndpoint = $"{Prefix}/hospitals";
         public static readonly string MedicinesEndpoint = $"{Prefix}/medicines";
         public static readonly string PatientsEndpoint = $"{Prefix}/patients";
-        public static readonly string PrescriptionEndpoint = $"{Prefix}/prescriptions";
+        public static readonly string PrescriptionsEndpoint = $"{Prefix}/prescriptions";
         public static readonly string PrescriptionItemsEndpoint = $"{Prefix}/prescriptionitems";
         public static readonly string StaffsEndpoint = $"{Prefix}/staffs";
+        public static readonly string PaymentsEndpoint = $"{Prefix}/payments";
     }
 
 
