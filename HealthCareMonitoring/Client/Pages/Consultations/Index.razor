@@ -1,55 +1,52 @@
-﻿@page "/appointments/"
+﻿@page "/consultations/"
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
 @implements IDisposable
 
-<h3 class="card-title">Healthcare Appointments</h3>
+<h3 class="card-title">Healthcare Consultations</h3>
 <br />
 
-<a href="/appointments/create" class="btn btn-secondary">
+<a href="/consultations/create" class="btn btn-secondary">
     <span class="oi oi-plus"></span>
-    Create New Appointment
+    Create New Consultation
 </a>
 <br />
 <br />
 
-@if (Appointments == null)
+@if (Consultations == null)
 {
-    <div class="alert alert-info">Loading Appointments...</div>
+    <div class="alert alert-info">Loading Consultations...</div>
 }
 else
 {
-    <table class="table table-responsive" id="appointmentsTable">
+    <table class="table table-responsive" id="consultationsTable">
         <thead>
             <tr>
-                <th>Appointment Id</th>
+                <th>Consultation Id</th>
                 <th>Staff Name</th>
-                <th>Patient Name</th>
-                <th>Hospital</th>
-                <th>Desired Time for Appointment</th>
+                <th>Hospital Name</th>
+                
                 
             </tr>
         </thead>
         <tbody>
-            @foreach (var appointment in Appointments)
+            @foreach (var consultation in Consultations)
             {
                 <tr>
-                    <td>@appointment.Id</td>
-                    <td>@appointment.Staff.FirstName @appointment.Staff.LastName</td>
-                    <td>@appointment.Patient.FirstName @appointment.Patient.LastName</td>
-                    <td>@appointment.Hospital.Name</td>
-                    <td>@appointment.PlannedDateTime.Date.ToString("dd MMMM yyyy")</td>
+                    <td>@consultation.Id</td>
+                    <td>@consultation.Staff.FirstName @consultation.Staff.LastName</td>
+                    <td>@consultation.Hospital.Name</td>
                     
 
                     <td>
-                        <a href="/appointments/view/@appointment.Id" class="btn btn-primary">
+                        <a href="/consultations/view/@consultation.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
                         </a>
-                        <a href="/appointments/edit/@appointment.Id" class="btn btn-warning">
+                        <a href="/consultations/edit/@consultation.Id" class="btn btn-warning">
                             <span class="oi oi-pencil"></span>
                         </a>
-                        <button class="btn btn-danger" @onclick="@(()=>Delete(appointment.Id))">
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(consultation.Id))">
                             <span class="oi oi-delete"></span>
                         </button>
                     </td>
@@ -60,23 +57,23 @@ else
 }
 
 @code {
-    private List<Appointment>? Appointments;
+    private List<Consultation>? Consultations;
     private DateTime nullDT = new DateTime(1, 1, 1, 0, 0, 0);
 
     protected async override Task OnInitializedAsync()
     {
-        Appointments = await _client.GetFromJsonAsync<List<Appointment>>($"{Endpoints.AppointmentsEndpoint}");
+        Consultations = await _client.GetFromJsonAsync<List<Consultation>>($"{Endpoints.ConsultationsEndpoint}");
     }
 
-    async Task Delete(int appointmentId)
+    async Task Delete(int consultationId)
     {
-        if (Appointments != null)
+        if (Consultations != null)
         {
-            var appointment = Appointments.First(q => q.Id == appointmentId);
-            var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {appointment.Id}?");
+            var consultation = Consultations.First(q => q.Id == consultationId);
+            var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {consultation.Id}?");
             if (confirm)
             {
-                await _client.DeleteAsync($"{Endpoints.AppointmentsEndpoint}/{appointmentId}");
+                await _client.DeleteAsync($"{Endpoints.ConsultationsEndpoint}/{consultationId}");
                 await OnInitializedAsync();
             }
         }
@@ -84,11 +81,11 @@ else
 
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
-        await js.InvokeVoidAsync("AddDataTable", "#appointmentsTable");
+        await js.InvokeVoidAsync("AddDataTable", "#consultationsTable");
     }
 
     public void Dispose()
     {
-        js.InvokeVoidAsync("DataTableDispose", "#appointmentsTable");
+        js.InvokeVoidAsync("DataTableDispose", "#consultationsTable");
     }
 }

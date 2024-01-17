@@ -1,33 +1,33 @@
-﻿@page "/appointments/create/"
+﻿@page "/consultations/create/"
 @inject HttpClient _client
 @inject NavigationManager _navManager
 
-<h3 class="card-title">Create New Appointment</h3>
+<h3 class="card-title">Create New Consultation</h3>
 <hr />
 <br />
 
 
-<FormComponent ButtonText="Create Appointment" OnValidSubmit="CreateAppointment" appointment="appointment" />
+<FormComponent ButtonText="Create Consultation" OnValidSubmit="CreateConsultation" consultation="consultation" />
 
 
 @code {
-    Appointment appointment = new Appointment();
+    Consultation consultation = new Consultation();
 
     private IList<Staff>? Staffs;
-    private IList<Patient>? Patients;
+    private IList<Appointment>? Appointments;
     private IList<Hospital>? Hospitals;
 
     protected async override Task OnInitializedAsync()
     {
         Staffs = await _client.GetFromJsonAsync<List<Staff>>($"{Endpoints.StaffsEndpoint}");
-        Patients = await _client.GetFromJsonAsync<List<Patient>>($"{Endpoints.PatientsEndpoint}");
+        Appointments = await _client.GetFromJsonAsync<List<Appointment>>($"{Endpoints.AppointmentsEndpoint}");
         Hospitals = await _client.GetFromJsonAsync<List<Hospital>>($"{Endpoints.HospitalsEndpoint}");
     }
 
-    private async Task CreateAppointment()
+    private async Task CreateConsultation()
     {
-        await _client.PostAsJsonAsync(Endpoints.AppointmentsEndpoint, appointment);
-        _navManager.NavigateTo("/appointments/");
+        await _client.PostAsJsonAsync(Endpoints.ConsultationsEndpoint, consultation);
+        _navManager.NavigateTo("/consultations/");
     }
 
 }

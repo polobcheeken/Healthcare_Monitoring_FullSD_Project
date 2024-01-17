@@ -15,5 +15,6 @@ namespace HealthCareMonitoring.Server.IRepository
         IGenericRepository<Prescription> Prescriptions { get; }
         IGenericRepository<PrescriptionItem> PrescriptionItems { get; }
         IGenericRepository<Staff> Staffs { get; }
+        IGenericRepository<Payment> Payments { get; }
     }
 }

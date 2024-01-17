@@ -21,6 +21,7 @@ namespace HealthCareMonitoring.Server.Repository
         private IGenericRepository<Prescription> _prescriptions;
         private IGenericRepository<PrescriptionItem> _prescriptionitems;
         private IGenericRepository<Staff> _staffs;
+        private IGenericRepository<Payment> _payments;
 
         private UserManager<ApplicationUser> _userManager;
 
@@ -46,6 +47,8 @@ namespace HealthCareMonitoring.Server.Repository
             => _prescriptionitems ??= new GenericRepository<PrescriptionItem>(_context);
         public IGenericRepository<Staff> Staffs
             => _staffs ??= new GenericRepository<Staff>(_context);
+        public IGenericRepository<Payment> Payments
+           => _payments ??= new GenericRepository<Payment>(_context);
 
         public void Dispose()
         {

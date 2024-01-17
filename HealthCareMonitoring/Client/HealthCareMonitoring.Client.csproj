@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Pages\Payments\" />
     <Folder Include="Services\" />
     <Folder Include="Pages\Hospitals\" />
     <Folder Include="Pages\Medicines\" />
