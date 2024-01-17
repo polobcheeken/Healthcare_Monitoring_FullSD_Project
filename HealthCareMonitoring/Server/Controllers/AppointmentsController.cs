@@ -57,7 +57,12 @@ namespace HealthCareMonitoring.Server.Controllers
             _unitOfWork.Appointments.Update(appointment);
 
             try
+<<<<<<< HEAD
             {;
+=======
+            {
+                ;
+>>>>>>> 5eb0dad489109e8062baaa3f6fb89913533d6b0d
                 await _unitOfWork.Save(HttpContext);
             }
             catch (DbUpdateConcurrencyException)

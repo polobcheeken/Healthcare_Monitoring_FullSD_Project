@@ -1,5 +1,6 @@
 using CarRentalManagement1.Client.Services;
 using HealthCareMonitoring.Client;
+using HealthCareMonitoring.Client.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;

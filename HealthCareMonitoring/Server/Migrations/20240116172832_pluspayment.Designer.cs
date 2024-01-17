@@ -12,13 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthCareMonitoring.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<<< HEAD:HealthCareMonitoring/Server/Migrations/20240116164131_Reupdated_Domain.Designer.cs
-    [Migration("20240116164131_Reupdated_Domain")]
-    partial class Reupdated_Domain
-========
-    [Migration("20240116172537_CreateDatabase")]
-    partial class CreateDatabase
->>>>>>>> 5eb0dad489109e8062baaa3f6fb89913533d6b0d:HealthCareMonitoring/Server/Migrations/20240116172537_CreateDatabase.Designer.cs
+    [Migration("20240116172832_pluspayment")]
+    partial class pluspayment
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -463,6 +458,42 @@ namespace HealthCareMonitoring.Server.Migrations
                     b.ToTable("Patients");
                 });
 
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AmtPaid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AmtPayable")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PrescriptionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PrescriptionId");
+
+                    b.ToTable("Payments");
+                });
+
             modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Prescription", b =>
                 {
                     b.Property<int>("Id")
@@ -768,6 +799,17 @@ namespace HealthCareMonitoring.Server.Migrations
                     b.Navigation("Hospital");
 
                     b.Navigation("Staff");
+                });
+
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Payment", b =>
+                {
+                    b.HasOne("HealthCareMonitoring.Shared.Domain.Prescription", "Prescription")
+                        .WithMany()
+                        .HasForeignKey("PrescriptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Prescription");
                 });
 
             modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Prescription", b =>

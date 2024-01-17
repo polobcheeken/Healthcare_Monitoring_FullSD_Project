@@ -455,6 +455,45 @@ namespace HealthCareMonitoring.Server.Migrations
                     b.ToTable("Patients");
                 });
 
+<<<<<<< HEAD
+=======
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AmtPaid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AmtPayable")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PrescriptionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PrescriptionId");
+
+                    b.ToTable("Payments");
+                });
+
+>>>>>>> 5eb0dad489109e8062baaa3f6fb89913533d6b0d
             modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Prescription", b =>
                 {
                     b.Property<int>("Id")
@@ -762,6 +801,20 @@ namespace HealthCareMonitoring.Server.Migrations
                     b.Navigation("Staff");
                 });
 
+<<<<<<< HEAD
+=======
+            modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Payment", b =>
+                {
+                    b.HasOne("HealthCareMonitoring.Shared.Domain.Prescription", "Prescription")
+                        .WithMany()
+                        .HasForeignKey("PrescriptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Prescription");
+                });
+
+>>>>>>> 5eb0dad489109e8062baaa3f6fb89913533d6b0d
             modelBuilder.Entity("HealthCareMonitoring.Shared.Domain.Prescription", b =>
                 {
                     b.HasOne("HealthCareMonitoring.Shared.Domain.Consultation", "Consultation")
