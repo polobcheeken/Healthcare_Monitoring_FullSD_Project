@@ -12,7 +12,7 @@ namespace HealthCareMonitoring.Shared.Domain
         public string? Description { get; set; }
         public string? Type { get; set; }
         public int? MedicineFee { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime ExpiryDate { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? ExpiryDate { get; set; }
     }
 }

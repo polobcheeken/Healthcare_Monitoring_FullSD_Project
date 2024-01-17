@@ -11,7 +11,7 @@ namespace HealthCareMonitoring.Shared.Domain
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public int? ContactNo { get; set; }
-        public string? Email { get; set; }
+        public string? EmailAddress { get; set; }
         public string? Username { get; set; }
         public string? Password { get; set; }
         public DateTime DateYearJoined { get; set; }

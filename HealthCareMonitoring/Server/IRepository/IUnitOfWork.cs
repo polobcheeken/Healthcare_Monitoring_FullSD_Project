@@ -1,4 +1,4 @@
-﻿using CarRentalManagement.Server.Repository;
+using CarRentalManagement.Server.Repository;
 using HealthCareMonitoring.Shared.Domain;
 using System.Drawing;
 

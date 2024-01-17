@@ -1,0 +1,89 @@
+﻿@page "/prescriptionitems/"
+@inject HttpClient _client
+@inject IJSRuntime js
+@attribute [Authorize]
+@implements IDisposable
+
+<h3 class="card-title">Healthcare Prescription Items</h3>
+<br />
+
+<a href="/prescriptionitems/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create New Prescription Item
+</a>
+<br />
+<br />
+
+@if (PrescriptionItems == null)
+{
+    <div class="alert alert-info">Loading Prescription Items...</div>
+}
+else
+{
+    <table class="table table-responsive" id="prescriptionitemsTable">
+        <thead>
+            <tr>
+                <th>PrescriptionItem Id</th>
+                <th>Medicine Quantity</th>>
+                <th>Actions</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prescriptionitem in PrescriptionItems)
+            {
+                <tr>
+                    <td>@prescriptionitem.Id</td>
+                    <td>@prescriptionitem.MedicineQty</td>
+
+					<td>
+                        <a href="/prescriptionitems/view/@prescriptionitem.Id" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                        <a href="/prescriptionitems/edit/@prescriptionitem.Id" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(prescriptionitem.Id))">
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<PrescriptionItem>? PrescriptionItems;
+    private DateTime nullDT = new DateTime(1, 1, 1, 0, 0, 0);
+
+    protected async override Task OnInitializedAsync()
+    {
+        PrescriptionItems = await _client.GetFromJsonAsync<List<PrescriptionItem>>($"{Endpoints.PrescriptionItemsEndpoint}");
+    }
+
+    async Task Delete(int prescriptionitemId)
+    {
+        if (PrescriptionItems != null)
+        {
+            var prescriptionitem = PrescriptionItems.First(q => q.Id == prescriptionitemId);
+            var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {prescriptionitem.Id}?");
+            if (confirm)
+            {
+                await _client.DeleteAsync($"{Endpoints.PrescriptionItemsEndpoint}/{prescriptionitemId}");
+                await OnInitializedAsync();
+            }
+        }
+    }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#prescriptionitemsTable");
+    }
+
+    public void Dispose()
+    {
+        js.InvokeVoidAsync("DataTableDispose", "#prescriptionitemsTable");
+    }
+}
