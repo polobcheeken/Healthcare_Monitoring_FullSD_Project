@@ -238,7 +238,7 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "288be91b-e80c-459d-afd0-4db34e222066",
+                            ConcurrencyStamp = "e0368db1-3547-4e1e-882d-fb5889a29ee0",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -246,9 +246,9 @@ namespace HealthCareMonitoring.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMLnQMUx4MNOO4ucHuMoHYZ3WLFPpyJR0c97JCj0v88BpV1XnQd945qL/3phIq41mA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENFhYOgebLeBOjPT8Nsz0198cvd+NWZsfCioM3susJyBW6qsRS034Otqy2rWEcaedw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4107a86e-5b64-4804-bdbb-b8c175cee92a",
+                            SecurityStamp = "e7ccfd68-b8b0-4144-99f3-222528da41e3",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });
@@ -391,8 +391,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 1,
                             Address = "100 Bukit Timah Road",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7282),
-                            DateUpdated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7292),
+                            DateCreated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2935),
+                            DateUpdated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2947),
                             Name = "KK Women’s and Children’s Hospital",
                             PostalCode = "Singapore 229899",
                             UpdatedBy = "System"
@@ -402,8 +402,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 2,
                             Address = "Bukit Merah",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7296),
-                            DateUpdated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7297),
+                            DateCreated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2950),
+                            DateUpdated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2950),
                             Name = "Singapore General Hospital",
                             PostalCode = "Singapore 169608",
                             UpdatedBy = "System"
@@ -413,8 +413,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 3,
                             Address = "6A Napier Road",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7298),
-                            DateUpdated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7299),
+                            DateCreated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2952),
+                            DateUpdated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2952),
                             Name = "Gleneagles Hospital",
                             PostalCode = "Singapore 258500",
                             UpdatedBy = "System"
@@ -424,8 +424,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 4,
                             Address = "2 Simei Street 3",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7300),
-                            DateUpdated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7300),
+                            DateCreated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2954),
+                            DateUpdated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2954),
                             Name = "Changi Genral Hospital",
                             PostalCode = "Singapore 529889",
                             UpdatedBy = "System"
@@ -435,8 +435,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 5,
                             Address = "3 Mount Elizabeth",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7302),
-                            DateUpdated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7302),
+                            DateCreated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2956),
+                            DateUpdated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2956),
                             Name = "Mount Elizabeth Hospital",
                             PostalCode = "Singapore 228510",
                             UpdatedBy = "System"
@@ -466,8 +466,8 @@ namespace HealthCareMonitoring.Server.Migrations
                     b.Property<DateTime?>("ExpiryDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("MedicineFee")
-                        .HasColumnType("int");
+                    b.Property<double?>("MedicineFee")
+                        .HasColumnType("float");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -490,10 +490,10 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7713),
-                            DateUpdated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7714),
+                            DateCreated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3357),
+                            DateUpdated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3358),
                             Description = "Used for headaches",
-                            MedicineFee = 5,
+                            MedicineFee = 5.0,
                             Name = "Paracetamol",
                             Type = "Tablet",
                             UpdatedBy = "System"
@@ -502,10 +502,10 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7717),
-                            DateUpdated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7717),
+                            DateCreated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3361),
+                            DateUpdated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3361),
                             Description = "Strong Painkiller, Only used when needed",
-                            MedicineFee = 5,
+                            MedicineFee = 5.5,
                             Name = "Ibuprofen",
                             Type = "Tablet",
                             UpdatedBy = "System"
@@ -514,12 +514,36 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = 3,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7719),
-                            DateUpdated = new DateTime(2024, 1, 22, 0, 48, 1, 3, DateTimeKind.Local).AddTicks(7719),
+                            DateCreated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3363),
+                            DateUpdated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3364),
                             Description = "Used to treat anxiety disorders",
-                            MedicineFee = 5,
+                            MedicineFee = 7.4000000000000004,
                             Name = "Xanax",
                             Type = "Pill",
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3365),
+                            DateUpdated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3366),
+                            Description = "Used to numb the throat and lungs to make cough reflex less active",
+                            MedicineFee = 4.2999999999999998,
+                            Name = "Benzonatate",
+                            Type = "Pill",
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3368),
+                            DateUpdated = new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3368),
+                            Description = "Used to reduce swelling and itching of allergic reactions",
+                            MedicineFee = 13.199999999999999,
+                            Name = "Fluocinonide",
+                            Type = "Cream",
                             UpdatedBy = "System"
                         });
                 });
