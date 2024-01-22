@@ -23,7 +23,7 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var Prescriptions = await _unitOfWork.Prescriptions.GetAll();
+            var Prescriptions = await _unitOfWork.Prescriptions.GetAll(includes: q => q.Include(x => x.Consultation));
             return Ok(Prescriptions);
         }
 

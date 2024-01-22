@@ -23,7 +23,7 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var Appointments = await _unitOfWork.Appointments.GetAll();
+            var Appointments = await _unitOfWork.Appointments.GetAll(includes: q => q.Include(x => x.Staff).Include(x => x.Patient).Include(x => x.Hospital));
             return Ok(Appointments);
         }
 

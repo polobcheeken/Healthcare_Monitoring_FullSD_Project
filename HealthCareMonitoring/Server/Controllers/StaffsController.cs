@@ -23,7 +23,8 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var Staffs = await _unitOfWork.Staffs.GetAll();
+            var Staffs = await _unitOfWork.Staffs.GetAll(includes: q => q.Include(x => x.Hospital));
+
             return Ok(Staffs);
         }
 
