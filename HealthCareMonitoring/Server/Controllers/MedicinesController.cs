@@ -23,8 +23,8 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var medicines = await _unitOfWork.Medicines.GetAll();
-            return Ok(medicines);
+            var Medicines = await _unitOfWork.Medicines.GetAll();
+            return Ok(Medicines);
         }
 
         // GET: api/Medicines/5
@@ -35,26 +35,26 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var medicine = await _unitOfWork.Medicines.Get(q => q.Id == id);
+            var Medicine = await _unitOfWork.Medicines.Get(q => q.Id == id);
 
-            if (medicine == null)
+            if (Medicine == null)
             {
                 return NotFound();
             }
 
-            return Ok(medicine);
+            return Ok(Medicine);
         }
 
         // PUT: api/Medicines/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMedicine(int id, Medicine medicine)
+        public async Task<IActionResult> PutMedicine(int id, Medicine Medicine)
         {
-            if (id != medicine.Id)
+            if (id != Medicine.Id)
             {
                 return BadRequest();
             }
-            _unitOfWork.Medicines.Update(medicine);
+            _unitOfWork.Medicines.Update(Medicine);
 
             try
             {
@@ -79,23 +79,23 @@ namespace HealthCareMonitoring.Server.Controllers
         // POST: api/Medicines
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Medicine>> PostMedicine(Medicine medicine)
+        public async Task<ActionResult<Medicine>> PostMedicine(Medicine Medicine)
         {
             if (_unitOfWork.Medicines == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Medicines'  is null.");
             }
-            await _unitOfWork.Medicines.Insert(medicine);
+            await _unitOfWork.Medicines.Insert(Medicine);
             await _unitOfWork.Save(HttpContext);
-            return CreatedAtAction("GetMedicine", new { id = medicine.Id }, medicine);
+            return CreatedAtAction("GetMedicine", new { id = Medicine.Id }, Medicine);
         }
 
         // DELETE: api/Medicines/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMedicine(int id)
         {
-            var medicine = await _unitOfWork.Medicines.Get(q => q.Id == id);
-            if (medicine == null)
+            var Medicine = await _unitOfWork.Medicines.Get(q => q.Id == id);
+            if (Medicine == null)
             {
                 return NotFound();
             }
@@ -107,8 +107,8 @@ namespace HealthCareMonitoring.Server.Controllers
 
         private async Task<bool> MedicineExists(int id)
         {
-            var medicine = await _unitOfWork.Medicines.Get(q => q.Id == id);
-            return medicine != null;
+            var Medicine = await _unitOfWork.Medicines.Get(q => q.Id == id);
+            return Medicine != null;
         }
     }
 }

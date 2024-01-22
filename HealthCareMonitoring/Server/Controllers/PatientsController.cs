@@ -23,8 +23,8 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var patients = await _unitOfWork.Patients.GetAll();
-            return Ok(patients);
+            var Patients = await _unitOfWork.Patients.GetAll();
+            return Ok(Patients);
         }
 
         // GET: api/Patients/5
@@ -35,26 +35,26 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var patient = await _unitOfWork.Patients.Get(q => q.Id == id);
+            var Patient = await _unitOfWork.Patients.Get(q => q.Id == id);
 
-            if (patient == null)
+            if (Patient == null)
             {
                 return NotFound();
             }
 
-            return Ok(patient);
+            return Ok(Patient);
         }
 
         // PUT: api/Patients/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPatient(int id, Patient patient)
+        public async Task<IActionResult> PutPatient(int id, Patient Patient)
         {
-            if (id != patient.Id)
+            if (id != Patient.Id)
             {
                 return BadRequest();
             }
-            _unitOfWork.Patients.Update(patient);
+            _unitOfWork.Patients.Update(Patient);
 
             try
             {
@@ -79,23 +79,23 @@ namespace HealthCareMonitoring.Server.Controllers
         // POST: api/Patients
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Patient>> PostPatient(Patient patient)
+        public async Task<ActionResult<Patient>> PostPatient(Patient Patient)
         {
             if (_unitOfWork.Patients == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Patients'  is null.");
             }
-            await _unitOfWork.Patients.Insert(patient);
+            await _unitOfWork.Patients.Insert(Patient);
             await _unitOfWork.Save(HttpContext);
-            return CreatedAtAction("GetPatient", new { id = patient.Id }, patient);
+            return CreatedAtAction("GetPatient", new { id = Patient.Id }, Patient);
         }
 
         // DELETE: api/Patients/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePatient(int id)
         {
-            var patient = await _unitOfWork.Patients.Get(q => q.Id == id);
-            if (patient == null)
+            var Patient = await _unitOfWork.Patients.Get(q => q.Id == id);
+            if (Patient == null)
             {
                 return NotFound();
             }
@@ -107,8 +107,8 @@ namespace HealthCareMonitoring.Server.Controllers
 
         private async Task<bool> PatientExists(int id)
         {
-            var patient = await _unitOfWork.Patients.Get(q => q.Id == id);
-            return patient != null;
+            var Patient = await _unitOfWork.Patients.Get(q => q.Id == id);
+            return Patient != null;
         }
     }
 }

@@ -23,9 +23,9 @@ else
     <table class="table table-responsive" id="hospitalsTable">
         <thead>
             <tr>
-                <th>Hospital Id</th>
                 <th>Hospital Name</th>
                 <th>Hospital Address</th>
+                <th>Hospital Postal Code</th>
                 <th>Actions</th>
                 
                 
@@ -35,9 +35,9 @@ else
             @foreach (var hospital in Hospitals)
             {
                 <tr>
-                    <td>@hospital.Id</td>
                     <td>@hospital.Name</td>
                     <td>@hospital.Address</td>
+                    <td>@hospital.PostalCode</td>
                     
 
                     <td>

@@ -23,8 +23,8 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var appointments = await _unitOfWork.Appointments.GetAll();
-            return Ok(appointments);
+            var Appointments = await _unitOfWork.Appointments.GetAll();
+            return Ok(Appointments);
         }
 
         // GET: api/Appointments/5
@@ -35,26 +35,26 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var appointment = await _unitOfWork.Appointments.Get(q => q.Id == id);
+            var Appointment = await _unitOfWork.Appointments.Get(q => q.Id == id);
 
-            if (appointment == null)
+            if (Appointment == null)
             {
                 return NotFound();
             }
 
-            return Ok(appointment);
+            return Ok(Appointment);
         }
 
         // PUT: api/Appointments/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAppointment(int id, Appointment appointment)
+        public async Task<IActionResult> PutAppointment(int id, Appointment Appointment)
         {
-            if (id != appointment.Id)
+            if (id != Appointment.Id)
             {
                 return BadRequest();
             }
-            _unitOfWork.Appointments.Update(appointment);
+            _unitOfWork.Appointments.Update(Appointment);
 
             try
             {
@@ -78,23 +78,23 @@ namespace HealthCareMonitoring.Server.Controllers
         // POST: api/Appointments
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Appointment>> PostAppointment(Appointment appointment)
+        public async Task<ActionResult<Appointment>> PostAppointment(Appointment Appointment)
         {
             if (_unitOfWork.Appointments == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Appointments'  is null.");
             }
-            await _unitOfWork.Appointments.Insert(appointment);
+            await _unitOfWork.Appointments.Insert(Appointment);
             await _unitOfWork.Save(HttpContext);
-            return CreatedAtAction("GetAppointment", new { id = appointment.Id }, appointment);
+            return CreatedAtAction("GetAppointment", new { id = Appointment.Id }, Appointment);
         }
 
         // DELETE: api/Appointments/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAppointment(int id)
         {
-            var appointment = await _unitOfWork.Appointments.Get(q => q.Id == id);
-            if (appointment == null)
+            var Appointment = await _unitOfWork.Appointments.Get(q => q.Id == id);
+            if (Appointment == null)
             {
                 return NotFound();
             }
@@ -106,8 +106,8 @@ namespace HealthCareMonitoring.Server.Controllers
 
         private async Task<bool> AppointmentExists(int id)
         {
-            var appointment = await _unitOfWork.Appointments.Get(q => q.Id == id);
-            return appointment != null;
+            var Appointment = await _unitOfWork.Appointments.Get(q => q.Id == id);
+            return Appointment != null;
         }
     }
 }

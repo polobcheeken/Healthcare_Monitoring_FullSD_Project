@@ -23,8 +23,8 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var consultations = await _unitOfWork.Consultations.GetAll();
-            return Ok(consultations);
+            var Consultations = await _unitOfWork.Consultations.GetAll();
+            return Ok(Consultations);
         }
 
         // GET: api/Consultations/5
@@ -35,26 +35,26 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var consultation = await _unitOfWork.Consultations.Get(q => q.Id == id);
+            var Consultation = await _unitOfWork.Consultations.Get(q => q.Id == id);
 
-            if (consultation == null)
+            if (Consultation == null)
             {
                 return NotFound();
             }
 
-            return Ok(consultation);
+            return Ok(Consultation);
         }
 
         // PUT: api/Consultations/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutConsultation(int id, Consultation consultation)
+        public async Task<IActionResult> PutConsultation(int id, Consultation Consultation)
         {
-            if (id != consultation.Id)
+            if (id != Consultation.Id)
             {
                 return BadRequest();
             }
-            _unitOfWork.Consultations.Update(consultation);
+            _unitOfWork.Consultations.Update(Consultation);
 
             try
             {
@@ -79,23 +79,23 @@ namespace HealthCareMonitoring.Server.Controllers
         // POST: api/Consultations
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Consultation>> PostConsultation(Consultation consultation)
+        public async Task<ActionResult<Consultation>> PostConsultation(Consultation Consultation)
         {
             if (_unitOfWork.Consultations == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Consultations'  is null.");
             }
-            await _unitOfWork.Consultations.Insert(consultation);
+            await _unitOfWork.Consultations.Insert(Consultation);
             await _unitOfWork.Save(HttpContext);
-            return CreatedAtAction("GetConsultation", new { id = consultation.Id }, consultation);
+            return CreatedAtAction("GetConsultation", new { id = Consultation.Id }, Consultation);
         }
 
         // DELETE: api/Consultations/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteConsultation(int id)
         {
-            var consultation = await _unitOfWork.Consultations.Get(q => q.Id == id);
-            if (consultation == null)
+            var Consultation = await _unitOfWork.Consultations.Get(q => q.Id == id);
+            if (Consultation == null)
             {
                 return NotFound();
             }
@@ -107,8 +107,8 @@ namespace HealthCareMonitoring.Server.Controllers
 
         private async Task<bool> ConsultationExists(int id)
         {
-            var consultation = await _unitOfWork.Consultations.Get(q => q.Id == id);
-            return consultation != null;
+            var Consultation = await _unitOfWork.Consultations.Get(q => q.Id == id);
+            return Consultation != null;
         }
     }
 }

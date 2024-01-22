@@ -23,8 +23,8 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var staffs = await _unitOfWork.Staffs.GetAll();
-            return Ok(staffs);
+            var Staffs = await _unitOfWork.Staffs.GetAll();
+            return Ok(Staffs);
         }
 
         // GET: api/Staffs/5
@@ -35,26 +35,26 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var staff = await _unitOfWork.Staffs.Get(q => q.Id == id);
+            var Staff = await _unitOfWork.Staffs.Get(q => q.Id == id);
 
-            if (staff == null)
+            if (Staff == null)
             {
                 return NotFound();
             }
 
-            return Ok(staff);
+            return Ok(Staff);
         }
 
         // PUT: api/Staffs/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutStaff(int id, Staff staff)
+        public async Task<IActionResult> PutStaff(int id, Staff Staff)
         {
-            if (id != staff.Id)
+            if (id != Staff.Id)
             {
                 return BadRequest();
             }
-            _unitOfWork.Staffs.Update(staff);
+            _unitOfWork.Staffs.Update(Staff);
 
             try
             {
@@ -79,23 +79,23 @@ namespace HealthCareMonitoring.Server.Controllers
         // POST: api/Staffs
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Staff>> PostStaff(Staff staff)
+        public async Task<ActionResult<Staff>> PostStaff(Staff Staff)
         {
             if (_unitOfWork.Staffs == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Staffs'  is null.");
             }
-            await _unitOfWork.Staffs.Insert(staff);
+            await _unitOfWork.Staffs.Insert(Staff);
             await _unitOfWork.Save(HttpContext);
-            return CreatedAtAction("GetStaff", new { id = staff.Id }, staff);
+            return CreatedAtAction("GetStaff", new { id = Staff.Id }, Staff);
         }
 
         // DELETE: api/Staffs/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStaff(int id)
         {
-            var staff = await _unitOfWork.Staffs.Get(q => q.Id == id);
-            if (staff == null)
+            var Staff = await _unitOfWork.Staffs.Get(q => q.Id == id);
+            if (Staff == null)
             {
                 return NotFound();
             }
@@ -107,8 +107,8 @@ namespace HealthCareMonitoring.Server.Controllers
 
         private async Task<bool> StaffExists(int id)
         {
-            var staff = await _unitOfWork.Staffs.Get(q => q.Id == id);
-            return staff != null;
+            var Staff = await _unitOfWork.Staffs.Get(q => q.Id == id);
+            return Staff != null;
         }
     }
 }

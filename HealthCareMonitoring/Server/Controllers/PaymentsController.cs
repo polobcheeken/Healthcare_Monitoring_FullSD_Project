@@ -23,8 +23,8 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var payments = await _unitOfWork.Payments.GetAll();
-            return Ok(payments);
+            var Payments = await _unitOfWork.Payments.GetAll();
+            return Ok(Payments);
         }
 
         // GET: api/Payments/5
@@ -35,26 +35,26 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var payment = await _unitOfWork.Payments.Get(q => q.Id == id);
+            var Payment = await _unitOfWork.Payments.Get(q => q.Id == id);
 
-            if (payment == null)
+            if (Payment == null)
             {
                 return NotFound();
             }
 
-            return Ok(payment);
+            return Ok(Payment);
         }
 
         // PUT: api/Payments/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPayment(int id, Payment payment)
+        public async Task<IActionResult> PutPayment(int id, Payment Payment)
         {
-            if (id != payment.Id)
+            if (id != Payment.Id)
             {
                 return BadRequest();
             }
-            _unitOfWork.Payments.Update(payment);
+            _unitOfWork.Payments.Update(Payment);
 
             try
             {
@@ -79,23 +79,23 @@ namespace HealthCareMonitoring.Server.Controllers
         // POST: api/Payments
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Payment>> PostPayment(Payment payment)
+        public async Task<ActionResult<Payment>> PostPayment(Payment Payment)
         {
             if (_unitOfWork.Payments == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Payments'  is null.");
             }
-            await _unitOfWork.Payments.Insert(payment);
+            await _unitOfWork.Payments.Insert(Payment);
             await _unitOfWork.Save(HttpContext);
-            return CreatedAtAction("GetPayment", new { id = payment.Id }, payment);
+            return CreatedAtAction("GetPayment", new { id = Payment.Id }, Payment);
         }
 
         // DELETE: api/Payments/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePayment(int id)
         {
-            var payment = await _unitOfWork.Payments.Get(q => q.Id == id);
-            if (payment == null)
+            var Payment = await _unitOfWork.Payments.Get(q => q.Id == id);
+            if (Payment == null)
             {
                 return NotFound();
             }
@@ -107,8 +107,8 @@ namespace HealthCareMonitoring.Server.Controllers
 
         private async Task<bool> PaymentExists(int id)
         {
-            var payment = await _unitOfWork.Payments.Get(q => q.Id == id);
-            return payment != null;
+            var Payment = await _unitOfWork.Payments.Get(q => q.Id == id);
+            return Payment != null;
         }
     }
 }

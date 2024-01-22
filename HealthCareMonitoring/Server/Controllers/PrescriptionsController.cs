@@ -23,8 +23,8 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var prescriptions = await _unitOfWork.Prescriptions.GetAll();
-            return Ok(prescriptions);
+            var Prescriptions = await _unitOfWork.Prescriptions.GetAll();
+            return Ok(Prescriptions);
         }
 
         // GET: api/Prescriptions/5

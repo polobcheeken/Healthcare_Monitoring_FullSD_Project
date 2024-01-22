@@ -23,8 +23,8 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var hospitals = await _unitOfWork.Hospitals.GetAll();
-            return Ok(hospitals);
+            var Hospitals = await _unitOfWork.Hospitals.GetAll();
+            return Ok(Hospitals);
         }
 
         // GET: api/Hospitals/5
@@ -35,26 +35,26 @@ namespace HealthCareMonitoring.Server.Controllers
             {
                 return NotFound();
             }
-            var hospital = await _unitOfWork.Hospitals.Get(q => q.Id == id);
+            var Hospital = await _unitOfWork.Hospitals.Get(q => q.Id == id);
 
-            if (hospital == null)
+            if (Hospital == null)
             {
                 return NotFound();
             }
 
-            return Ok(hospital);
+            return Ok(Hospital);
         }
 
         // PUT: api/Hospitals/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutHospital(int id, Hospital hospital)
+        public async Task<IActionResult> PutHospital(int id, Hospital Hospital)
         {
-            if (id != hospital.Id)
+            if (id != Hospital.Id)
             {
                 return BadRequest();
             }
-            _unitOfWork.Hospitals.Update(hospital);
+            _unitOfWork.Hospitals.Update(Hospital);
 
             try
             {
@@ -79,23 +79,23 @@ namespace HealthCareMonitoring.Server.Controllers
         // POST: api/Hospitals
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Hospital>> PostHospital(Hospital hospital)
+        public async Task<ActionResult<Hospital>> PostHospital(Hospital Hospital)
         {
             if (_unitOfWork.Hospitals == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Hospitals'  is null.");
             }
-            await _unitOfWork.Hospitals.Insert(hospital);
+            await _unitOfWork.Hospitals.Insert(Hospital);
             await _unitOfWork.Save(HttpContext);
-            return CreatedAtAction("GetHospital", new { id = hospital.Id }, hospital);
+            return CreatedAtAction("GetHospital", new { id = Hospital.Id }, Hospital);
         }
 
         // DELETE: api/Hospitals/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHospital(int id)
         {
-            var hospital = await _unitOfWork.Hospitals.Get(q => q.Id == id);
-            if (hospital == null)
+            var Hospital = await _unitOfWork.Hospitals.Get(q => q.Id == id);
+            if (Hospital == null)
             {
                 return NotFound();
             }
@@ -107,8 +107,8 @@ namespace HealthCareMonitoring.Server.Controllers
 
         private async Task<bool> HospitalExists(int id)
         {
-            var hospital = await _unitOfWork.Hospitals.Get(q => q.Id == id);
-            return hospital != null;
+            var Hospital = await _unitOfWork.Hospitals.Get(q => q.Id == id);
+            return Hospital != null;
         }
     }
 }
