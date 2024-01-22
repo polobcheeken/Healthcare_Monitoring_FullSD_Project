@@ -5,6 +5,7 @@ using HealthCareMonitoring.Shared.Domain;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using System.Reflection.Emit;
 
 namespace HealthCareMonitoring.Server.Data
 {
@@ -34,7 +35,8 @@ namespace HealthCareMonitoring.Server.Data
 			builder.ApplyConfiguration(new RoleSeedConfiguration());
 			builder.ApplyConfiguration(new UserRoleSeedConfiguration());
 			builder.ApplyConfiguration(new UserSeedConfiguration());
+            builder.ApplyConfiguration(new PatientSeedConfiguration());
 
-		}
+        }
 	}
 }

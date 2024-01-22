@@ -45,7 +45,7 @@ namespace HealthCareMonitoring.Server.Configurations.Entities
             new Hospital
             {
 				Id = 4,
-                Name = "Changi Genral Hospital",
+                Name = "Changi General Hospital",
                 Address = "2 Simei Street 3",
                 PostalCode = "Singapore 529889",
                 DateCreated = DateTime.Now,

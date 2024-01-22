@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HealthCareMonitoring.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class database : Migration
+    public partial class new_database : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -477,18 +477,18 @@ namespace HealthCareMonitoring.Server.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "e0368db1-3547-4e1e-882d-fb5889a29ee0", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAENFhYOgebLeBOjPT8Nsz0198cvd+NWZsfCioM3susJyBW6qsRS034Otqy2rWEcaedw==", null, false, "e7ccfd68-b8b0-4144-99f3-222528da41e3", false, "admin@localhost.com" });
+                values: new object[] { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "be329c58-84ac-4669-afb6-5654522d58b3", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEKkSADRExPSLFfcDebNTlDFspQRmeX20HMCIJB7sGvlinvvR9BAqA3hFsclMTHKC+Q==", null, false, "5275f7b1-9881-4f9c-a562-cf4323e1deb4", false, "admin@localhost.com" });
 
             migrationBuilder.InsertData(
                 table: "Hospitals",
                 columns: new[] { "Id", "Address", "CreatedBy", "DateCreated", "DateUpdated", "Description", "Name", "PostalCode", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, "100 Bukit Timah Road", "System", new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2935), new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2947), null, "KK Women’s and Children’s Hospital", "Singapore 229899", "System" },
-                    { 2, "Bukit Merah", "System", new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2950), new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2950), null, "Singapore General Hospital", "Singapore 169608", "System" },
-                    { 3, "6A Napier Road", "System", new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2952), new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2952), null, "Gleneagles Hospital", "Singapore 258500", "System" },
-                    { 4, "2 Simei Street 3", "System", new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2954), new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2954), null, "Changi Genral Hospital", "Singapore 529889", "System" },
-                    { 5, "3 Mount Elizabeth", "System", new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2956), new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(2956), null, "Mount Elizabeth Hospital", "Singapore 228510", "System" }
+                    { 1, "100 Bukit Timah Road", "System", new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3573), new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3586), null, "KK Women’s and Children’s Hospital", "Singapore 229899", "System" },
+                    { 2, "Bukit Merah", "System", new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3589), new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3589), null, "Singapore General Hospital", "Singapore 169608", "System" },
+                    { 3, "6A Napier Road", "System", new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3591), new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3592), null, "Gleneagles Hospital", "Singapore 258500", "System" },
+                    { 4, "2 Simei Street 3", "System", new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3593), new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3594), null, "Changi General Hospital", "Singapore 529889", "System" },
+                    { 5, "3 Mount Elizabeth", "System", new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3595), new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3596), null, "Mount Elizabeth Hospital", "Singapore 228510", "System" }
                 });
 
             migrationBuilder.InsertData(
@@ -496,11 +496,11 @@ namespace HealthCareMonitoring.Server.Migrations
                 columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "Description", "ExpiryDate", "MedicineFee", "Name", "StartDate", "Type", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, "System", new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3357), new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3358), "Used for headaches", null, 5.0, "Paracetamol", null, "Tablet", "System" },
-                    { 2, "System", new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3361), new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3361), "Strong Painkiller, Only used when needed", null, 5.5, "Ibuprofen", null, "Tablet", "System" },
-                    { 3, "System", new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3363), new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3364), "Used to treat anxiety disorders", null, 7.4000000000000004, "Xanax", null, "Pill", "System" },
-                    { 4, "System", new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3365), new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3366), "Used to numb the throat and lungs to make cough reflex less active", null, 4.2999999999999998, "Benzonatate", null, "Pill", "System" },
-                    { 5, "System", new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3368), new DateTime(2024, 1, 22, 2, 44, 55, 400, DateTimeKind.Local).AddTicks(3368), "Used to reduce swelling and itching of allergic reactions", null, 13.199999999999999, "Fluocinonide", null, "Cream", "System" }
+                    { 1, "System", new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3986), new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3988), "Used for headaches", null, 5.0, "Paracetamol", null, "Tablet", "System" },
+                    { 2, "System", new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3991), new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3991), "Strong Painkiller, Only used when needed", null, 5.5, "Ibuprofen", null, "Tablet", "System" },
+                    { 3, "System", new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3993), new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3994), "Used to treat anxiety disorders", null, 7.4000000000000004, "Xanax", null, "Pill", "System" },
+                    { 4, "System", new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3996), new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3996), "Used to numb the throat and lungs to make cough reflex less active", null, 4.2999999999999998, "Benzonatate", null, "Pill", "System" },
+                    { 5, "System", new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(3999), new DateTime(2024, 1, 22, 21, 45, 40, 74, DateTimeKind.Local).AddTicks(4000), "Used to reduce swelling and itching of allergic reactions", null, 13.199999999999999, "Fluocinonide", null, "Cream", "System" }
                 });
 
             migrationBuilder.InsertData(
