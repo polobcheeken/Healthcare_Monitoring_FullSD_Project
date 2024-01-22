@@ -23,7 +23,6 @@ else
     <table class="table table-responsive" id="medicinesTable">
         <thead>
             <tr>
-                <th>Medicine Id</th>
                 <th>Medicine Name</th>
                 <th>Medicine Description</th>
                 <th>Medicine Type</th>
@@ -36,7 +35,6 @@ else
             @foreach (var medicine in Medicines)
             {
                 <tr>
-                    <td>@medicine.Id</td>
                     <td>@medicine.Name</td>
                     <td>@medicine.Description</td>
                     <td>@medicine.Type</td>
@@ -73,7 +71,7 @@ else
         if (Medicines != null)
         {
             var medicine = Medicines.First(q => q.Id == medicineId);
-            var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {medicine.Id}?");
+            var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {medicine.Name}?");
             if (confirm)
             {
                 await _client.DeleteAsync($"{Endpoints.MedicinesEndpoint}/{medicineId}");

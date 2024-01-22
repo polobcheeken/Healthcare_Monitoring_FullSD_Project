@@ -21,6 +21,17 @@ namespace HealthCareMonitoring.Server.Configurations.Entities
                     UserName = "admin@localhost.com",
                     NormalizedUserName = "ADMIN@LOCALHOST.COM",
                     PasswordHash = hasher.HashPassword(null, "P@ssword1")
+                },
+                new ApplicationUser
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Email = "test@blazor.com",
+                    NormalizedEmail = "TEST@BLAZOR.COM",
+                    FirstName = "Test",
+                    LastName = "User",
+                    UserName = "test@blazor.com",
+                    NormalizedUserName = "TEST@BLAZOR.COM",
+                    PasswordHash = hasher.HashPassword(null, "P@ssword123")
                 }
                 );
         }

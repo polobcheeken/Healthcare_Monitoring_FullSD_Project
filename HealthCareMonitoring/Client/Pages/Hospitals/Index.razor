@@ -71,7 +71,7 @@ else
         if (Hospitals != null)
         {
             var hospital = Hospitals.First(q => q.Id == hospitalId);
-            var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {hospital.Id}?");
+            var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {hospital.Name}?");
             if (confirm)
             {
                 await _client.DeleteAsync($"{Endpoints.HospitalsEndpoint}/{hospitalId}");
