@@ -13,15 +13,15 @@ namespace HealthCareMonitoring.Server.Repository
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _context;
-        private IGenericRepository<Appointment>? _appointments;
-        private IGenericRepository<Consultation>? _consultations;
-        private IGenericRepository<Hospital>? _hospitals;
-        private IGenericRepository<Medicine>? _medicines;
-        private IGenericRepository<Patient>? _patients;
+        private IGenericRepository<Appointment> _appointments;
+        private IGenericRepository<Consultation> _consultations;
+        private IGenericRepository<Hospital> _hospitals;
+        private IGenericRepository<Medicine> _medicines;
+        private IGenericRepository<Patient> _patients;
         private IGenericRepository<Prescription> _prescriptions;
-        private IGenericRepository<PrescriptionItem>? _prescriptionitems;
-        private IGenericRepository<Staff>? _staffs;
-        private IGenericRepository<Payment>? _payments;
+        private IGenericRepository<PrescriptionItem> _prescriptionitems;
+        private IGenericRepository<Staff> _staffs;
+        private IGenericRepository<Payment> _payments;
 
         private UserManager<ApplicationUser> _userManager;
 
