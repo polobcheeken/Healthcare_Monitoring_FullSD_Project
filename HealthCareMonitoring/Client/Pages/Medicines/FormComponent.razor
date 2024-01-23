@@ -12,6 +12,7 @@
                 <ValidationMessage For="@(() => medicine.Name)" />
             </div>
         </div>
+
         <div class="form-group">
             <label> Medicine Description: </label> 
             <div>
@@ -19,6 +20,7 @@
                 <ValidationMessage For="@(() => medicine.Description)" />
             </div>
         </div>
+
         <div class="form-group">
             <label>Medicine Type: </label>
             <div>
@@ -26,6 +28,15 @@
                 <ValidationMessage For="@(() => medicine.Type)" />
             </div>
         </div>
+
+        <div class="form-group">
+            <label>Medicine Type: </label>
+            <div>
+                <InputNumber @bind-Value="@medicine.MedicineFee" class="form-control" />
+                <ValidationMessage For="@(() => medicine.MedicineFee)" />
+            </div>
+        </div>
+
         <div class="form-group">
             <label>Medicine Manufactered Date: </label>
             <div>
@@ -33,6 +44,7 @@
                 <ValidationMessage For="@(() => medicine.ManufacturedDate)" />
             </div>
         </div>
+
         <div class="form-group">
             <label>Medicine Expiry Date: </label>
             <div>
@@ -40,11 +52,8 @@
                 <ValidationMessage For="@(() => medicine.ExpiryDate)" />
             </div>
         </div>
-
-
-
-        <br />
-        <br />
+        <br/>
+        <br/>
     </fieldset>
 
     @if (!Disabled)

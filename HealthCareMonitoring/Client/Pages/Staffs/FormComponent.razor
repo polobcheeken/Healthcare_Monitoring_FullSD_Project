@@ -1,0 +1,126 @@
+﻿@inject HttpClient _client
+
+<EditForm Model="@staff" OnValidSubmit="@OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <fieldset disabled="@Disabled">
+
+        <div class="form-group">
+            <label>Staff First Name: </label>
+            <div>
+                <InputText @bind-Value="@staff.FirstName" class="form-control" />
+                <ValidationMessage For="@(() => staff.FirstName)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Staff Last Name: </label>
+            <div>
+                <InputText @bind-Value="@staff.LastName" class="form-control" />
+                <ValidationMessage For="@(() => staff.LastName)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Staff Contact No: </label>
+            <div>
+                <InputNumber @bind-Value="@staff.ContactNo" class="form-control" />
+                <ValidationMessage For="@(() => staff.ContactNo)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Staff Gender: </label>
+            <div>
+                <InputText @bind-Value="@staff.Gender" class="form-control" />
+                <ValidationMessage For="@(() => staff.Gender)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Staff Email Address: </label>
+            <div>
+                <InputText @bind-Value="@staff.EmailAddress" class="form-control" />
+                <ValidationMessage For="@(() => staff.EmailAddress)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Staff Username: </label>
+            <div>
+                <InputText @bind-Value="@staff.Username" class="form-control" />
+                <ValidationMessage For="@(() => staff.Username)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Staff Password: </label>
+            <div>
+                <InputText @bind-Value="@staff.Password" class="form-control" />
+                <ValidationMessage For="@(() => staff.Password)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Staff Salary: </label>
+            <div>
+                <InputNumber @bind-Value="@staff.Salary" class="form-control" />
+                <ValidationMessage For="@(() => staff.Salary)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Staff Salary: </label>
+            <div>
+                <InputDate @bind-Value="@staff.DateYearJoined" class="form-control" />
+                <ValidationMessage For="@(() => staff.DateYearJoined)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Hospital Posted: </label>
+            <div>
+                <InputSelect @bind-Value="staff.HospitalId" class="form-control">
+                    <option value="">-- Select Hospital --</option>
+                    @if (Hospitals != null)
+                    {
+                        foreach (var hospital in Hospitals)
+                        {
+                            <option value="@hospital.Id">@hospital.Name</option>
+                        }
+                    }
+                </InputSelect>
+                <ValidationMessage For="@(() => staff.HospitalId)" />
+            </div>
+        </div
+
+        <br />
+        <br />
+    </fieldset>
+
+    @if (!Disabled)
+    {
+        <button type="submit" class="btn btn-success btn-block">
+            @ButtonText
+        </button>
+    }
+    <BackToList Target="staffs" />
+
+</EditForm>
+
+
+@code {
+    [Parameter] public bool Disabled { get; set; } = false;
+    [Parameter] public Staff staff { get; set; }
+    [Parameter] public string ButtonText { get; set; } = "Save";
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+    private IList<Hospital>? Hospitals;
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        Hospitals = await _client.GetFromJsonAsync<List<Hospital>>($"{Endpoints.HospitalsEndpoint}");
+    }
+}
