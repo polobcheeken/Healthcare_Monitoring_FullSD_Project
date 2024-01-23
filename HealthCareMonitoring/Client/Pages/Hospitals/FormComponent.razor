@@ -1,0 +1,54 @@
+﻿@inject HttpClient _client
+
+<EditForm Model="@hospital" OnValidSubmit="@OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <fieldset disabled="@Disabled">
+        <div class="form-group">
+            <label>Hospital Name: </label>
+            <div>
+                <InputText @bind-Value="@hospital.Name" class="form-control" />
+                <ValidationMessage For="@(() => hospital.Name)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Hospital Address: </label>
+            <div>
+                <InputText @bind-Value="@hospital.Address" class="form-control" />
+                <ValidationMessage For="@(() => hospital.Address)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Hospital Postal Code: </label>
+            <div>
+                <InputText @bind-Value="@hospital.PostalCode" class="form-control" />
+                <ValidationMessage For="@(() => hospital.PostalCode)" />
+            </div>
+        </div
+
+
+        <br />
+        <br />
+    </fieldset>
+
+    @if (!Disabled)
+    {
+        <button type="submit" class="btn btn-success btn-block">
+            @ButtonText
+        </button>
+    }
+    <BackToList Target="hospitals" />
+
+</EditForm>
+
+
+@code {
+    [Parameter] public bool Disabled { get; set; } = false;
+    [Parameter] public Hospital hospital { get; set; }
+    [Parameter] public string ButtonText { get; set; } = "Save";
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+}
