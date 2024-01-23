@@ -6,10 +6,91 @@
 
     <fieldset disabled ="@Disabled">
    
+        <div class="form-group">
+            <label>Staff-In-Charge: </label>
+            <div>
+                <InputSelect @bind-Value="consultation.StaffId" class="form-control">
+                    <option value="">-- Select Staff --</option>
+                    @if (Staffs != null)
+                    {
+                        foreach (var staff in Staffs)
+                        {
+                            <option value="@staff.Id">@staff.FirstName</option>
+                        }
+                    }
+                </InputSelect>
+                <ValidationMessage For="@(() => consultation.StaffId)" />
+            </div>
+        </div>
 
+        <div class="form-group">
+            <label>Appointment: </label>
+            <div>
+                <InputSelect @bind-Value="consultation.AppointmentId" class="form-control">
+                    <option value="">-- Select Appointment --</option>
+                    @if (Appointments != null)
+                    {
+                        foreach (var appointment in Appointments)
+                        {
+                            <option value="@appointment.Id"> @appointment.PlannedDateTime </option> // no proper anchor for drop down selection
+                        }
+                    }
+                </InputSelect>
+                <ValidationMessage For="@(() => consultation.AppointmentId)" />
+            </div>
+        </div>
 
-        <br />
-        <br />
+        <div class="form-group">
+            <label>Hospital: </label>
+            <div>
+                <InputSelect @bind-Value="consultation.HospitalId" class="form-control">
+                    <option value="">-- Select Hospital --</option>
+                    @if (Hospitals != null)
+                    {
+                        foreach (var hospital in Hospitals)
+                        {
+                            <option value="@hospital.Id">@hospital.Name</option>
+                        }
+                    }
+                </InputSelect>
+                <ValidationMessage For="@(() => consultation.HospitalId)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Consultation Description: </label>
+            <div>
+                <InputText @bind-Value="@consultation.Description" class="form-control" />
+                <ValidationMessage For="@(() => consultation.Description)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Consultation Fee: </label>
+            <div>
+                <InputNumber @bind-Value="@consultation.ConsultationFee" class="form-control" />
+                <ValidationMessage For="@(() => consultation.ConsultationFee)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Consultation Start Time: </label>
+            <div>
+                <InputDate @bind-Value="@consultation.StartDateTime" class="form-control" />
+                <ValidationMessage For="@(() => consultation.StartDateTime)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Consultation End Time: </label>
+            <div>
+                <InputDate @bind-Value="@consultation.EndDateTime" class="form-control" />
+                <ValidationMessage For="@(() => consultation.EndDateTime)" />
+            </div>
+        </div>
+
+        <br/>
+        <br/>
     </fieldset>
 
     @if (!Disabled)

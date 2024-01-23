@@ -13,13 +13,6 @@
 @code {
     Staff staff = new Staff();
 
-    private IList<Hospital>? Hospitals;
-
-    protected async override Task OnInitializedAsync()
-    {
-        Hospitals = await _client.GetFromJsonAsync<List<Hospital>>($"{Endpoints.HospitalsEndpoint}");
-    }
-
     private async Task CreateStaff()
     {
         await _client.PostAsJsonAsync(Endpoints.StaffsEndpoint, staff);

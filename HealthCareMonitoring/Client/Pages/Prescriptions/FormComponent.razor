@@ -6,9 +6,33 @@
 
     <fieldset disabled="@Disabled">
         
+        <div class="form-group">
+            <label>Consultation: </label>
+            <div>
+                <InputSelect @bind-Value="prescription.ConsultationId" class="form-control">
+                    <option value="">-- Select Hospital --</option>
+                    @if (Consultations != null)
+                    {
+                        foreach (var consultation in Consultations)
+                        {
+                            <option value="@consultation.Id">@consultation.Description</option> //no proper anchor
+                        }
+                    }
+                </InputSelect>
+                <ValidationMessage For="@(() => prescription.ConsultationId)" />
+            </div>
+        </div>
 
-        <br />
-        <br />
+        <div class="form-group">
+            <label>Prescription : </label>
+            <div>
+                <InputText @bind-Value="@prescription.Description" class="form-control" />
+                <ValidationMessage For="@(() => prescription.Description)" />
+            </div>
+        </div>
+
+        <br/>
+        <br/>
     </fieldset>
 
     @if (!Disabled)
