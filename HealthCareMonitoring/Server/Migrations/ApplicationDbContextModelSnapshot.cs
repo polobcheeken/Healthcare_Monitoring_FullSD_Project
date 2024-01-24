@@ -238,7 +238,7 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "086f044a-2443-4416-9d7d-ca2428f27929",
+                            ConcurrencyStamp = "d6f3ad8d-0386-46aa-9c9d-cb88e7eac0d5",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -246,17 +246,17 @@ namespace HealthCareMonitoring.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEM/+oBrUJe8I8+55q8UGP+mWClzXdgKZVnjEUgsUXCxsUJ3yBCPLICkEnagZlpAfFw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFzdHLiBlq3eodsrtPAgB7q9YgZyttkJ9iuTTi2Ol9dG8U3AiSpIQqEogZJJYmcIMQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b3cfae71-5946-4fd7-ac01-9c700f3f4811",
+                            SecurityStamp = "551bdcce-a6b9-4948-9264-aa1c81595343",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
                         new
                         {
-                            Id = "d0398b61-ffd9-43c1-9a84-35dae9f9c6e9",
+                            Id = "e8f8a202-f67d-448b-981b-c7b5fc97908a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4fbcb1b9-7c89-4431-8e40-7bcbaefc8f05",
+                            ConcurrencyStamp = "a008ea79-1981-49db-a7fe-46d935f78d82",
                             Email = "test@blazor.com",
                             EmailConfirmed = false,
                             FirstName = "Test",
@@ -264,9 +264,9 @@ namespace HealthCareMonitoring.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@BLAZOR.COM",
                             NormalizedUserName = "TEST@BLAZOR.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAED/DmzyLI3tvmpS1Syxkc5t707TsYFS7IeG3qgOoL3W7yrSPakhKXqP9NozahGqIGg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOC0LKg8CS6MPjKIVH2gAgMLIjKPmz/tsnexssuBu1su3kF27dJ2hcvg+8nXJT+S7w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f74877e2-9a2b-438f-9f98-b51b608c34bb",
+                            SecurityStamp = "b3452af3-0d19-4e79-aceb-614057fc43c7",
                             TwoFactorEnabled = false,
                             UserName = "test@blazor.com"
                         });
@@ -327,9 +327,11 @@ namespace HealthCareMonitoring.Server.Migrations
                         .HasColumnType("int");
 
                     b.Property<double?>("ConsultationFee")
+                        .IsRequired()
                         .HasColumnType("float");
 
                     b.Property<int?>("ConsultationLength")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
@@ -342,9 +344,12 @@ namespace HealthCareMonitoring.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("EndDateTime")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("StaffId")
@@ -374,7 +379,9 @@ namespace HealthCareMonitoring.Server.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -386,12 +393,17 @@ namespace HealthCareMonitoring.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("PostalCode")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedBy")
@@ -407,8 +419,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 1,
                             Address = "100 Bukit Timah Road",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(7618),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(7629),
+                            DateCreated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(2767),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(2778),
                             Description = "Specialising in obstetrics, gynaecology, neonatology and paediatrics",
                             Name = "KK Women’s and Children’s Hospital",
                             PostalCode = "Singapore 229899",
@@ -419,8 +431,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 2,
                             Address = "Bukit Merah",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(7631),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(7632),
+                            DateCreated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(2781),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(2781),
                             Description = "Larget tertiary hospital and ranked among the world's best",
                             Name = "Singapore General Hospital",
                             PostalCode = "Singapore 169608",
@@ -431,8 +443,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 3,
                             Address = "6A Napier Road",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(7634),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(7634),
+                            DateCreated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(2783),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(2783),
                             Description = "Private institution with comprehensive range of medical care",
                             Name = "Gleneagles Hospital",
                             PostalCode = "Singapore 258500",
@@ -443,8 +455,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 4,
                             Address = "2 Simei Street 3",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(7636),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(7636),
+                            DateCreated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(2785),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(2785),
                             Description = "1000-bed hospital, always alwayble for emergencies",
                             Name = "Changi General Hospital",
                             PostalCode = "Singapore 529889",
@@ -455,8 +467,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 5,
                             Address = "3 Mount Elizabeth",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(7637),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(7638),
+                            DateCreated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(2787),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(2787),
                             Description = "Singapore's best doctors and provides exceptional personalised medical services",
                             Name = "Mount Elizabeth Hospital",
                             PostalCode = "Singapore 228510",
@@ -482,22 +494,31 @@ namespace HealthCareMonitoring.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("ExpiryDate")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("ManufacturedDate")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<double?>("MedicineFee")
+                        .IsRequired()
                         .HasColumnType("float");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -511,8 +532,8 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(8057),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(8059),
+                            DateCreated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(3137),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(3138),
                             Description = "Used for headaches",
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -525,8 +546,8 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(8061),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(8062),
+                            DateCreated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(3141),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(3141),
                             Description = "Strong Painkiller, Only used when needed",
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -539,8 +560,8 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = 3,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(8064),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(8064),
+                            DateCreated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(3143),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(3144),
                             Description = "Used to treat anxiety disorders",
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -553,8 +574,8 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = 4,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(8066),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(8067),
+                            DateCreated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(3145),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(3146),
                             Description = "Used to numb the throat and lungs to make cough reflex less active",
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -567,8 +588,8 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = 5,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(8068),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 131, DateTimeKind.Local).AddTicks(8069),
+                            DateCreated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(3148),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 685, DateTimeKind.Local).AddTicks(3148),
                             Description = "Used to reduce swelling and itching of allergic reactions",
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -588,6 +609,7 @@ namespace HealthCareMonitoring.Server.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int?>("ContactNo")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
@@ -606,25 +628,36 @@ namespace HealthCareMonitoring.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EmailAddress")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Gender")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -638,8 +671,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             CreatedBy = "System",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 259, DateTimeKind.Local).AddTicks(7617),
-                            DateYearJoined = new DateTime(2024, 1, 25, 2, 16, 23, 259, DateTimeKind.Local).AddTicks(7605),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 824, DateTimeKind.Local).AddTicks(3692),
+                            DateYearJoined = new DateTime(2024, 1, 25, 3, 4, 11, 824, DateTimeKind.Local).AddTicks(3673),
                             EmailAddress = "michealtan@blazor.com",
                             FirstName = "Micheal",
                             Gender = "Male",
@@ -655,8 +688,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             CreatedBy = "System",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(2000, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 259, DateTimeKind.Local).AddTicks(7624),
-                            DateYearJoined = new DateTime(2024, 1, 25, 2, 16, 23, 259, DateTimeKind.Local).AddTicks(7623),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 824, DateTimeKind.Local).AddTicks(3699),
+                            DateYearJoined = new DateTime(2024, 1, 25, 3, 4, 11, 824, DateTimeKind.Local).AddTicks(3698),
                             EmailAddress = "johntoh@blazor.com",
                             FirstName = "John",
                             Gender = "Male",
@@ -672,8 +705,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             CreatedBy = "System",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(1994, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 259, DateTimeKind.Local).AddTicks(7626),
-                            DateYearJoined = new DateTime(2024, 1, 25, 2, 16, 23, 259, DateTimeKind.Local).AddTicks(7625),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 824, DateTimeKind.Local).AddTicks(3702),
+                            DateYearJoined = new DateTime(2024, 1, 25, 3, 4, 11, 824, DateTimeKind.Local).AddTicks(3701),
                             EmailAddress = "lilyleow@blazor.com",
                             FirstName = "Lily",
                             Gender = "Female",
@@ -689,8 +722,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             CreatedBy = "System",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(1988, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 259, DateTimeKind.Local).AddTicks(7632),
-                            DateYearJoined = new DateTime(2024, 1, 25, 2, 16, 23, 259, DateTimeKind.Local).AddTicks(7628),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 824, DateTimeKind.Local).AddTicks(3704),
+                            DateYearJoined = new DateTime(2024, 1, 25, 3, 4, 11, 824, DateTimeKind.Local).AddTicks(3703),
                             EmailAddress = "ryantan@blazor.com",
                             FirstName = "Ryan",
                             Gender = "Male",
@@ -706,8 +739,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             CreatedBy = "System",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(1977, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(2024, 1, 25, 2, 16, 23, 259, DateTimeKind.Local).AddTicks(7674),
-                            DateYearJoined = new DateTime(2024, 1, 25, 2, 16, 23, 259, DateTimeKind.Local).AddTicks(7673),
+                            DateUpdated = new DateTime(2024, 1, 25, 3, 4, 11, 824, DateTimeKind.Local).AddTicks(3707),
+                            DateYearJoined = new DateTime(2024, 1, 25, 3, 4, 11, 824, DateTimeKind.Local).AddTicks(3706),
                             EmailAddress = "nicolelim@blazor.com",
                             FirstName = "Nicole",
                             Gender = "Female",
@@ -727,10 +760,13 @@ namespace HealthCareMonitoring.Server.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<double?>("AmtPayable")
+                        .IsRequired()
                         .HasColumnType("float");
 
                     b.Property<string>("CardType")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -775,7 +811,9 @@ namespace HealthCareMonitoring.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -834,6 +872,7 @@ namespace HealthCareMonitoring.Server.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int?>("ContactNo")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
@@ -849,31 +888,42 @@ namespace HealthCareMonitoring.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EmailAddress")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Gender")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("HospitalId")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Password")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("Salary")
+                        .IsRequired()
                         .HasColumnType("float");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
