@@ -10,13 +10,12 @@
             <label>Consultation: </label>
             <div>
                 <InputSelect @bind-Value="payment.PrescriptionId" class="form-control">
-                    <option value="">-- Select Hospital --</option>
+                    <option value="">-- Select Prescription --</option>
                     @if (Prescriptions != null)
                     {
                         foreach (var prescription in Prescriptions)
                         {
                             <option value="@prescription.Id">@prescription.Description</option>
-                            //no proper anchor
                         }
                     }
                 </InputSelect>
@@ -24,21 +23,26 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label>Amount to pay: </label>
-            <div>
-                <InputNumber @bind-Value="@payment.AmtPayable" class="form-control" />
-                <ValidationMessage For="@(() => payment.AmtPayable)" />
+        @if (payment.Id > 0)
+        {
+            <div class="form-group">
+                <label>Amount to pay: </label>
+                <div>
+                    <InputNumber @bind-Value="@payment.AmtPayable" class="form-control" />
+                    <ValidationMessage For="@(() => payment.AmtPayable)" />
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label>Amount paid: </label>
-            <div>
-                <InputNumber @bind-Value="@payment.AmtPaid" class="form-control" />
-                <ValidationMessage For="@(() => payment.AmtPaid)" />
+            <div class="form-group">
+                <label>Amount paid: </label>
+                <div>
+                    <InputNumber @bind-Value="@payment.AmtPaid" class="form-control" />
+                    <ValidationMessage For="@(() => payment.AmtPaid)" />
+                </div>
             </div>
-        </div>
+        }
+
+        
 
         <br/>
         <br/>
@@ -68,4 +72,5 @@
     {
         Prescriptions = await _client.GetFromJsonAsync<List<Prescription>>($"{Endpoints.PrescriptionsEndpoint}");
     }
+
 }

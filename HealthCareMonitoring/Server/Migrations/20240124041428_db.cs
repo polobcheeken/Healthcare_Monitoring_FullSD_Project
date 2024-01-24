@@ -297,7 +297,7 @@ namespace HealthCareMonitoring.Server.Migrations
                     EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Salary = table.Column<float>(type: "real", nullable: true),
+                    Salary = table.Column<double>(type: "float", nullable: true),
                     DateYearJoined = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -359,7 +359,7 @@ namespace HealthCareMonitoring.Server.Migrations
                     StaffId = table.Column<int>(type: "int", nullable: true),
                     HospitalId = table.Column<int>(type: "int", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConsultationFee = table.Column<float>(type: "real", nullable: false),
+                    ConsultationFee = table.Column<double>(type: "float", nullable: true),
                     StartDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDateTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -417,8 +417,8 @@ namespace HealthCareMonitoring.Server.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PrescriptionId = table.Column<int>(type: "int", nullable: true),
-                    AmtPaid = table.Column<int>(type: "int", nullable: true),
-                    AmtPayable = table.Column<int>(type: "int", nullable: true),
+                    AmtPaid = table.Column<double>(type: "float", nullable: true),
+                    AmtPayable = table.Column<double>(type: "float", nullable: true),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -479,8 +479,8 @@ namespace HealthCareMonitoring.Server.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1a683c05-3140-41e0-8a75-1d3ee95fff9b", 0, "6724dc78-d6c1-4be0-971e-408d548d5c65", "test@blazor.com", false, "Test", "User", false, null, "TEST@BLAZOR.COM", "TEST@BLAZOR.COM", "AQAAAAIAAYagAAAAEKc54hQ8qiaJ1diVQTRnVHcZDLsOtVP2kA1ROQLweGZm+wFozDCczJCb1bBdkyK0Fg==", null, false, "7d3ec0db-d3df-4273-9750-7d00e76f71d5", false, "test@blazor.com" },
-                    { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "c3402753-1fa2-43ac-9a57-17a32ad3d773", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEKaOxPiyhUr0ADLHmgjbHXZ0So4VnM3u+Ovr3w8qSV+X32KRrrLm70wWU1/xrb08Zw==", null, false, "bf2cd873-2849-4ed0-a28d-504e6a0c7ff3", false, "admin@localhost.com" }
+                    { "3781efa7-66dc-47f0-860f-e506d04102e4", 0, "09301a5d-a7db-4a0b-873f-e00e39810362", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAELdyq1soSg7MMVFaeqFT4iP5asRnn5EdgOHzIN57BIdisDKAUylHZ/zvRq3A4G37hw==", null, false, "02a67cda-8753-4134-8fcc-741ce3d8a278", false, "admin@localhost.com" },
+                    { "bdf56f15-b7c9-45a9-95a4-104e40122305", 0, "10e66a43-381a-42c3-9e3b-151b56618f11", "test@blazor.com", false, "Test", "User", false, null, "TEST@BLAZOR.COM", "TEST@BLAZOR.COM", "AQAAAAIAAYagAAAAEA8mCzQQZXsLQ+YkRQSMrSt+X6KJlD/65KA8cUxMPglkrqPObkPt2UBWy8YS44LG0Q==", null, false, "7ce1199f-45b1-439e-b208-0923ef12b357", false, "test@blazor.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -488,11 +488,11 @@ namespace HealthCareMonitoring.Server.Migrations
                 columns: new[] { "Id", "Address", "CreatedBy", "DateCreated", "DateUpdated", "Description", "Name", "PostalCode", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, "100 Bukit Timah Road", "System", new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9258), new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9271), null, "KK Women’s and Children’s Hospital", "Singapore 229899", "System" },
-                    { 2, "Bukit Merah", "System", new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9275), new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9276), null, "Singapore General Hospital", "Singapore 169608", "System" },
-                    { 3, "6A Napier Road", "System", new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9277), new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9278), null, "Gleneagles Hospital", "Singapore 258500", "System" },
-                    { 4, "2 Simei Street 3", "System", new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9282), new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9283), null, "Changi General Hospital", "Singapore 529889", "System" },
-                    { 5, "3 Mount Elizabeth", "System", new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9285), new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9286), null, "Mount Elizabeth Hospital", "Singapore 228510", "System" }
+                    { 1, "100 Bukit Timah Road", "System", new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(4437), new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(4459), null, "KK Women’s and Children’s Hospital", "Singapore 229899", "System" },
+                    { 2, "Bukit Merah", "System", new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(4468), new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(4469), null, "Singapore General Hospital", "Singapore 169608", "System" },
+                    { 3, "6A Napier Road", "System", new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(4473), new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(4474), null, "Gleneagles Hospital", "Singapore 258500", "System" },
+                    { 4, "2 Simei Street 3", "System", new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(4478), new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(4479), null, "Changi General Hospital", "Singapore 529889", "System" },
+                    { 5, "3 Mount Elizabeth", "System", new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(4482), new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(4484), null, "Mount Elizabeth Hospital", "Singapore 228510", "System" }
                 });
 
             migrationBuilder.InsertData(
@@ -500,11 +500,11 @@ namespace HealthCareMonitoring.Server.Migrations
                 columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "Description", "ExpiryDate", "ManufacturedDate", "MedicineFee", "Name", "Type", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, "System", new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9772), new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9774), "Used for headaches", null, null, 5.0, "Paracetamol", "Tablet", "System" },
-                    { 2, "System", new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9777), new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9777), "Strong Painkiller, Only used when needed", null, null, 5.5, "Ibuprofen", "Tablet", "System" },
-                    { 3, "System", new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9780), new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9780), "Used to treat anxiety disorders", null, null, 7.4000000000000004, "Xanax", "Pill", "System" },
-                    { 4, "System", new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9782), new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9783), "Used to numb the throat and lungs to make cough reflex less active", null, null, 4.2999999999999998, "Benzonatate", "Pill", "System" },
-                    { 5, "System", new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9785), new DateTime(2024, 1, 24, 10, 38, 34, 876, DateTimeKind.Local).AddTicks(9786), "Used to reduce swelling and itching of allergic reactions", null, null, 13.199999999999999, "Fluocinonide", "Cream", "System" }
+                    { 1, "System", new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(5483), new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(5487), "Used for headaches", null, null, 5.0, "Paracetamol", "Tablet", "System" },
+                    { 2, "System", new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(5493), new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(5494), "Strong Painkiller, Only used when needed", null, null, 5.5, "Ibuprofen", "Tablet", "System" },
+                    { 3, "System", new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(5499), new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(5500), "Used to treat anxiety disorders", null, null, 7.4000000000000004, "Xanax", "Pill", "System" },
+                    { 4, "System", new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(5504), new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(5505), "Used to numb the throat and lungs to make cough reflex less active", null, null, 4.2999999999999998, "Benzonatate", "Pill", "System" },
+                    { 5, "System", new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(5509), new DateTime(2024, 1, 24, 12, 14, 28, 319, DateTimeKind.Local).AddTicks(5510), "Used to reduce swelling and itching of allergic reactions", null, null, 13.199999999999999, "Fluocinonide", "Cream", "System" }
                 });
 
             migrationBuilder.InsertData(
@@ -512,11 +512,11 @@ namespace HealthCareMonitoring.Server.Migrations
                 columns: new[] { "Id", "ContactNo", "CreatedBy", "DateCreated", "DateOfBirth", "DateUpdated", "DateYearJoined", "EmailAddress", "FirstName", "LastName", "Password", "UpdatedBy", "Username" },
                 values: new object[,]
                 {
-                    { 1, 12345678, "System", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 1, 24, 10, 38, 35, 47, DateTimeKind.Local).AddTicks(9394), new DateTime(2024, 1, 24, 10, 38, 35, 47, DateTimeKind.Local).AddTicks(9367), "michealtan@blazor.com", "Micheal", "Tan", "ilovekfc@123", "System", "Mike" },
-                    { 2, 87654321, "System", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2000, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 1, 24, 10, 38, 35, 47, DateTimeKind.Local).AddTicks(9401), new DateTime(2024, 1, 24, 10, 38, 35, 47, DateTimeKind.Local).AddTicks(9400), "johntoh@blazor.com", "John", "Toh", "ihatekfc@321", "System", "Jonny" },
-                    { 3, 13243546, "System", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1994, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 1, 24, 10, 38, 35, 47, DateTimeKind.Local).AddTicks(9407), new DateTime(2024, 1, 24, 10, 38, 35, 47, DateTimeKind.Local).AddTicks(9404), "lilyleow@blazor.com", "Lily", "Leow", "ilovemcs@123", "System", "Lil lee" },
-                    { 4, 65432146, "System", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1988, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 1, 24, 10, 38, 35, 47, DateTimeKind.Local).AddTicks(9411), new DateTime(2024, 1, 24, 10, 38, 35, 47, DateTimeKind.Local).AddTicks(9409), "ryantan@blazor.com", "Ryan", "Tan", "ihatemcs@321", "System", "Raiden" },
-                    { 5, 84745671, "System", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1977, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 1, 24, 10, 38, 35, 47, DateTimeKind.Local).AddTicks(9415), new DateTime(2024, 1, 24, 10, 38, 35, 47, DateTimeKind.Local).AddTicks(9414), "nicolelim@blazor.com", "Nicole", "Lim", "tysagoat@123", "System", "Nicolas" }
+                    { 1, 12345678, "System", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 1, 24, 12, 14, 28, 526, DateTimeKind.Local).AddTicks(9245), new DateTime(2024, 1, 24, 12, 14, 28, 526, DateTimeKind.Local).AddTicks(9225), "michealtan@blazor.com", "Micheal", "Tan", "ilovekfc@123", "System", "Mike" },
+                    { 2, 87654321, "System", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2000, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 1, 24, 12, 14, 28, 526, DateTimeKind.Local).AddTicks(9250), new DateTime(2024, 1, 24, 12, 14, 28, 526, DateTimeKind.Local).AddTicks(9249), "johntoh@blazor.com", "John", "Toh", "ihatekfc@321", "System", "Jonny" },
+                    { 3, 13243546, "System", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1994, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 1, 24, 12, 14, 28, 526, DateTimeKind.Local).AddTicks(9254), new DateTime(2024, 1, 24, 12, 14, 28, 526, DateTimeKind.Local).AddTicks(9252), "lilyleow@blazor.com", "Lily", "Leow", "ilovemcs@123", "System", "Lil lee" },
+                    { 4, 65432146, "System", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1988, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 1, 24, 12, 14, 28, 526, DateTimeKind.Local).AddTicks(9257), new DateTime(2024, 1, 24, 12, 14, 28, 526, DateTimeKind.Local).AddTicks(9256), "ryantan@blazor.com", "Ryan", "Tan", "ihatemcs@321", "System", "Raiden" },
+                    { 5, 84745671, "System", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1977, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2024, 1, 24, 12, 14, 28, 526, DateTimeKind.Local).AddTicks(9260), new DateTime(2024, 1, 24, 12, 14, 28, 526, DateTimeKind.Local).AddTicks(9260), "nicolelim@blazor.com", "Nicole", "Lim", "tysagoat@123", "System", "Nicolas" }
                 });
 
             migrationBuilder.InsertData(

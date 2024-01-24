@@ -82,14 +82,17 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label>Consultation End Time: </label>
-            <div>
-                <InputDate @bind-Value="@consultation.EndDateTime" class="form-control" />
-                <ValidationMessage For="@(() => consultation.EndDateTime)" />
+        @if (consultation.Id > 0)
+        {
+            <div class="form-group">
+                <label>Consultation End Time: </label>
+                <div>
+                    <InputDate @bind-Value="@consultation.EndDateTime" class="form-control" />
+                    <ValidationMessage For="@(() => consultation.EndDateTime)" />
+                </div>
             </div>
-        </div>
-
+        }
+        
         <br/>
         <br/>
     </fieldset>
