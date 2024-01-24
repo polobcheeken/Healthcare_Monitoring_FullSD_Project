@@ -38,6 +38,14 @@
         </div>
 
         <div class="form-group">
+            <label>Gender: </label>
+            <div>
+                <InputText @bind-Value="@patient.Gender" class="form-control" />
+                <ValidationMessage For="@(() => patient.Gender)" />
+            </div>
+        </div>
+
+        <div class="form-group">
             <label>Username: </label>
             <div>
                 <InputText @bind-Value="@patient.Username" class="form-control" />
