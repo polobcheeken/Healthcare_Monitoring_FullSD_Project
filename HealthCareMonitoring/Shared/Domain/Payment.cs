@@ -10,7 +10,7 @@ namespace HealthCareMonitoring.Shared.Domain
     {
         public virtual Prescription? Prescription { get; set; }
         public int? PrescriptionId { get; set; }
-        public double? AmtPaid { get; set; }
+        public string? CardType { get; set; }
         public double? AmtPayable { get; set; }
     }
 }

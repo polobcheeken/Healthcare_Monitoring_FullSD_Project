@@ -32,29 +32,11 @@
                     {
                         foreach (var appointment in Appointments)
                         {
-                            <option value="@appointment.Id">Time: @appointment.PlannedDateTime, Staff: @appointment.Staff.FirstName @appointment.Staff.LastName</option>
-                            // no proper anchor for drop down selection
+                            <option value="@appointment.Id">Time: @appointment.PlannedDateTime, Patient: @appointment.Patient.FirstName @appointment.Patient.LastName</option>
                         }
                     }
                 </InputSelect>
                 <ValidationMessage For="@(() => consultation.AppointmentId)" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Hospital: </label>
-            <div>
-                <InputSelect @bind-Value="consultation.HospitalId" class="form-control">
-                    <option value="">-- Select Hospital --</option>
-                    @if (Hospitals != null)
-                    {
-                        foreach (var hospital in Hospitals)
-                        {
-                            <option value="@hospital.Id">@hospital.Name</option>
-                        }
-                    }
-                </InputSelect>
-                <ValidationMessage For="@(() => consultation.HospitalId)" />
             </div>
         </div>
 
@@ -71,6 +53,14 @@
             <div>
                 <InputNumber @bind-Value="@consultation.ConsultationFee" class="form-control" />
                 <ValidationMessage For="@(() => consultation.ConsultationFee)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Consultation Length (in minutes): </label>
+            <div>
+                <InputNumber @bind-Value="@consultation.ConsultationLength" class="form-control" />
+                <ValidationMessage For="@(() => consultation.ConsultationLength)" />
             </div>
         </div>
 
@@ -92,6 +82,7 @@
                 </div>
             </div>
         }
+       
         
         <br/>
         <br/>
