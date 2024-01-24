@@ -15,7 +15,7 @@
                     {
                         foreach (var staff in Staffs)
                         {
-                            <option value="@staff.Id">@staff.FirstName</option>
+                            <option value="@staff.Id">@staff.FirstName @staff.LastName</option>
                         }
                     }
                 </InputSelect>
@@ -32,7 +32,8 @@
                     {
                         foreach (var appointment in Appointments)
                         {
-                            <option value="@appointment.Id"> @appointment.PlannedDateTime </option> // no proper anchor for drop down selection
+                            <option value="@appointment.Id">Time: @appointment.PlannedDateTime, Staff: @appointment.Staff.FirstName @appointment.Staff.LastName</option>
+                            // no proper anchor for drop down selection
                         }
                     }
                 </InputSelect>

@@ -9,7 +9,7 @@
         <div class="form-group">
             <label>Prescription: </label>
             <div>
-                <InputSelect @bind-Value="prescriptionItem.Prescription" class="form-control">
+                <InputSelect @bind-Value="prescriptionItem.PrescriptionId" class="form-control">
                     <option value="">-- Select Prescription --</option>
                     @if (Prescriptions != null)
                     {
@@ -26,7 +26,7 @@
         <div class="form-group">
             <label>Medicine: </label>
             <div>
-                <InputSelect @bind-Value="prescriptionItem.Medicine" class="form-control">
+                <InputSelect @bind-Value="prescriptionItem.MedicineId" class="form-control">
                     <option value="">-- Select Medicine --</option>
                     @if (Medicines != null)
                     {
@@ -59,7 +59,7 @@
             @ButtonText
         </button>
     }
-    <BackToList Target="staffs" />
+    <BackToList Target="prescriptionitems" />
 
 </EditForm>
 
