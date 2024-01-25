@@ -11,8 +11,7 @@ namespace HealthCareMonitoring.Shared.Domain
     {
         
         public virtual Prescription? Prescription { get; set; }
-
-        
+        [Required]
         public int? PrescriptionId { get; set; }
 
         [Required(ErrorMessage = "Enter NIL if you pay at stated hospital")]

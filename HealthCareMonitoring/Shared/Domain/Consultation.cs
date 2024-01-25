@@ -11,9 +11,11 @@ namespace HealthCareMonitoring.Shared.Domain
     {
         
         public virtual Appointment? Appointment { get; set; }
+        [Required]
         public int? AppointmentId { get; set; }
 
         public virtual Staff? Staff { get; set; }
+        [Required]
         public int? StaffId { get; set; }
 
         [Required(ErrorMessage = "Enter NIL if nothing to write about")]
@@ -28,8 +30,5 @@ namespace HealthCareMonitoring.Shared.Domain
 
         [Required(ErrorMessage = "Please provide a valid start time for the consultation")]
         public DateTime StartDateTime { get; set; }
-
-        [Required(ErrorMessage = "Please provide a valid end time for the consultation")]
-        public DateTime? EndDateTime { get; set; }
     }
 }

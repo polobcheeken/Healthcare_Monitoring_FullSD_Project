@@ -11,6 +11,7 @@ namespace HealthCareMonitoring.Shared.Domain
     {
       
         public virtual Hospital? Hospital { get; set; }
+        [Required]
         public int? HospitalId { get; set; }
 
         [Required]

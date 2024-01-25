@@ -28,7 +28,7 @@
         <div class="form-group">
             <label>Medicine: </label>
             <div>
-                <InputSelect @bind-Value="prescriptionItem.MedicineId" class="form-control">
+                <InputSelect @bind-Value="@prescriptionItem.MedicineId" class="form-control">
                     <option value="">-- Select Medicine --</option>
                     @if (Medicines != null)
                     {

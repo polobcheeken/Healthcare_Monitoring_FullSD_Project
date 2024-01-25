@@ -37,6 +37,18 @@ namespace HealthCareMonitoring.Server.Data
 			builder.ApplyConfiguration(new UserSeedConfiguration());
             builder.ApplyConfiguration(new PatientSeedConfiguration());
 
+
+            builder.Entity<Appointment>()
+            .HasOne(a => a.Staff)
+            .WithMany()
+            .HasForeignKey(a => a.StaffId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Consultation>()
+            .HasOne(a => a.Staff)
+            .WithMany()
+            .HasForeignKey(a => a.StaffId)
+            .OnDelete(DeleteBehavior.Restrict);
         }
 	}
 }

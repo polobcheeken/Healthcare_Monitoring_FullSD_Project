@@ -73,17 +73,6 @@
                 <ValidationMessage For="@(() => consultation.StartDateTime)" />
             </div>
         </div>
-
-        @if (consultation.Id > 0)
-        {
-            <div class="form-group">
-                <label>Consultation End Time: </label>
-                <div>
-                    <InputDate @bind-Value="@consultation.EndDateTime" class="form-control" />
-                    <ValidationMessage For="@(() => consultation.EndDateTime)" />
-                </div>
-            </div>
-        }
        
         
         <br/>

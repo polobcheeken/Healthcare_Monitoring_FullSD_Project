@@ -11,6 +11,7 @@ namespace HealthCareMonitoring.Shared.Domain
     {
         
         public virtual Consultation? Consultation { get; set; }
+        [Required]
         public int? ConsultationId { get; set; }
 
         [Required(ErrorMessage = "Enter NIL if nothing to write about")]
