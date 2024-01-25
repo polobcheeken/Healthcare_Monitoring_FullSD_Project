@@ -9,10 +9,10 @@
     <fieldset disabled ="@Disabled">
    
         <div class="form-group">
-            <label>Staff-In-Charge: </label>
+            <label>Doctor Name: </label>
             <div>
                 <InputSelect @bind-Value="consultation.StaffId" class="form-control">
-                    <option value="">-- Select Staff --</option>
+                    <option value="">-- Select Doctor --</option>
                     @if (Staffs != null)
                     {
                         foreach (var staff in Staffs)
