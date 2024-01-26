@@ -1,4 +1,24 @@
-﻿.heading_text {
+﻿.logo-container {
+    left: 220px;
+    top: 10px;
+    width: 100px; /* Set the width of the container */
+    height: 100px; /* Set the height of the container */
+    border-radius: 50%; /* Ensure the container is circular */
+    background-color: lightblue; /* Set the background color of the container */
+    position: absolute; /* Set position to relative for child element positioning */
+    overflow: hidden; /* Ensure content within the container stays within bounds */
+    z-index: 1;
+}
+
+.icon_main {
+    position: absolute;
+    top: 3px; /* Adjust this value to move the image upwards */
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+}
+
+.heading_text {
     color: white;
     text-align: center;
     position: relative; /* Add this line to make z-index work */
@@ -16,44 +36,16 @@
     z-index: 0;
 }
 
-.about_div {
+.content_header {
+    text-align: left;
     position: relative;
-    width: 100%;
-    height: 120px;
-    background-color: gray;
-    text-align: center;
-    z-index: 0;
+    font-weight: bold;
+    text-decoration: underline;
 }
-
-.rightlogo-container {
-    left: 950px;
-    top: 10px;
-    width: 100px; /* Set the width of the container */
-    height: 100px; /* Set the height of the container */
-    border-radius: 50%; /* Ensure the container is circular */
-    background-color: lightblue; /* Set the background color of the container */
-    position: absolute; /* Set position to relative for child element positioning */
-    overflow: hidden; /* Ensure content within the container stays within bounds */
-    z-index: 1;
-}
-
-.logo-container {
-    left: 220px;
-    top: 10px;
-    width: 100px; /* Set the width of the container */
-    height: 100px; /* Set the height of the container */
-    border-radius: 50%; /* Ensure the container is circular */
-    background-color: lightblue; /* Set the background color of the container */
-    position: absolute; /* Set position to relative for child element positioning */
-    overflow: hidden; /* Ensure content within the container stays within bounds */
-    z-index: 1;
-}
-
-
 
 .content_div {
     position: fixed;
-    background-color: darkblue;
+    background-color: antiquewhite;
     top: 120px;
     left: 200px;
     right: 0;
@@ -61,7 +53,6 @@
     overflow-y: auto;
     z-index: 0;
 }
-
 
 .curved-box {
     position: relative;
@@ -74,6 +65,37 @@
     color: blue;
     text-align: center;
     margin-bottom: 200px;
+}
+
+.content_text {
+    position: absolute;
+    bottom: 10px; /* Adjust this value to control the distance from the bottom */
+    left: 0;
+    width: 100%;
+    color: black;
+    text-align: center;
+    padding:5px;
+    color: white;
+}
+
+.image {
+    position: absolute;
+    top: 20px; /* Adjust this value to move the image upwards */
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+}
+
+.rightlogo-container {
+    left: 950px;
+    top: 10px;
+    width: 100px; /* Set the width of the container */
+    height: 100px; /* Set the height of the container */
+    border-radius: 50%; /* Ensure the container is circular */
+    background-color: lightblue; /* Set the background color of the container */
+    position: absolute; /* Set position to relative for child element positioning */
+    overflow: hidden; /* Ensure content within the container stays within bounds */
+    z-index: 1;
 }
 
 .right-boxr1c2 {
@@ -137,7 +159,6 @@
 }
 
 .icon-text1 {
-    color: white;
     text-align: center;
     position: absolute;
     top: 1300px;
@@ -145,19 +166,25 @@
 }
 
 .icon-text2 {
-    color: white;
     text-align: center;
     position: absolute; 
     top: 1550px;
     left: 400px;
 }
 
-.image {
-    max-width: 100%; 
-    max-height: 100%;
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
+.about_div {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    background-color: gray;
+    text-align: center;
+    z-index: 0;
 }
 
+
+.icon{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    z-index: 1;
+}

@@ -6,101 +6,140 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="Index.razor.css">
-
-
-	
 </head>
 
-
 <body>
-	@* this is the header *@
+	@* this is the logo *@
 	<div class="logo-container">
-		<img src="logo.png" alt="logo" class="image">
+		<img src="logo.png" alt="logo" class="icon_main">
 	</div>
+
+	@* this is the header with the backgroud div block *@
 	<div>
 		<header class="heading_text">
 			<h1>Welcome to HealthCycle.</h1>
 			<h2><i>Health first, above everything</i></h2>
 		</header>
-
 		<div class="heading_div"></div>
 	</div>
+
+
 
 	@* this is the container *@
 	<div class="content_div">
 
 		@* this is the first row *@
-
-		<div class="heading_text">
+		<div class="content_header" style="top: 35px; left: 50px;">
 			<h1>Current News of COVID-19</h1>
 		</div>
 
 		<div class="curved-box">
-			<h1>herro 1</h1>
-			<img src="meme.jpg" alt="Testing" class="image">
+			<h1 class="content_text"></h1>
+			<img src="/news1.png" alt="Testing" class="image">
+			<h7 class="content_text">There has been a surge of COVID-19 cases. The rise has significantly increased up to 50%... <br> 
+				<a href="https://www.channelnewsasia.com/singapore/covid-19-healthcare-raffles-medical-whitecoat-fullerton-doctors-telehealth-4014936" style="color: black"><em>->Click here to view more...</em></a>
+			</h7>
 		</div>
 
 		<div class="right-boxr1c2">
-			<h1>herro 2</h1>
+			<h1 class="content_text"></h1>
+			<img src="/news3.png" alt="Testing" class="image">
+			<h7 class="content_text">
+				Moving on from COVID-19 might not be an option available for others; Especially for the elderies...<br>
+				<a href="https://www.channelnewsasia.com/commentary/covid19-pandemic-vulnerable-age-cancer-disease-vaccine-antiviral-4053356" style="color: black"><em>->Click here to view more...</em></a>
+			</h7>
 		</div>
 
 		<div class="right-boxr1c3">
-			<h1>herro 3</h1>
+			<h1 class="content_text"></h1>
+			<img src="/news2.png" alt="Testing" class="image">
+			<h7 class="content_text">
+				Vaccine issues potentially linked with fatigue. Factors for such an issue would be...<br>
+				<a href="https://www.channelnewsasia.com/commentary/covid-19-vaccine-fatigue-new-year-gatherings-boosters-infections-4015816" style="color: black"><em>->Click here to view more...</em></a>
+			</h7>
 		</div>
+
 
 		@* this is the second row *@
 
-		<div class="heading_text">
-			<h1>Physical and Mental Well-Being Programmes</h1>
+		<div class="content_header" style="top: 40px; left: 50px;">
+			<h1>Physical and Mental Well-being Programmes</h1>
 		</div>
 
 		<div class="curved-box">
-			<h1>herro 4</h1>
+			<h1 class="content_text"></h1>
+			<img src="/programme1.png" alt="Testing" class="image">
+			<h7 class="content_text">
+				Time to move your body and keep it active! <br>
+				<a href="https://www.healthhub.sg/programmes/letsmoveit" style="color: black"><em>->Click here to view more...</em></a>
+			</h7>
 		</div>
 
 		<div class="right-boxr2c2">
-			<h1>herro 5</h1>
+			<h1 class="content_text"></h1>
+			<img src="/programme2.png" alt="Testing" class="image" style="top: 25px;">
+			<h7 class="content_text">
+				Special offer for eldderies! Come for a checkup for at most $5!<br>
+				<a href="https://www.healthhub.sg/programmes/screen_for_life" style="color: black"><em>->Click here to view more...</em></a>
+			</h7>
 		</div>
 
 		<div class="right-boxr2c3">
-			<h1>herro 6</h1>
+			<h1 class="content_text"></h1>
+			<img src="/programme3.png" alt="Testing" class="image" style="top: 25px">
+			<h7 class="content_text">
+				Join this event to learn how to support friends and family in need.<br>
+				<a href="https://www.healthhub.sg/programmes/mindsg/caring-for-others/how-to-better-support-others#home" style="color: black"><em>->Click here to view more...</em></a>
+			</h7>
 		</div>
 
 		@* this is the third row *@
 
-		<div class="heading_text">
-			<h1>Health Tools</h1>
+		@* <div class="heading_text">
+			<h1 style ="text-decoration: underline;">Health Tools</h1>
+		</div> *@
+
+		<div class="content_header" style="top: 0px; left: 500px;">
+			<h1>Heath Tools</h1>
 		</div>
 
 		<div class="icon-container">
 		</div>
 
 		<div class="icon-text1">
-			<h1>icon text 1 --></h1>
+			<h1><a href="https://www.calculator.net/bmi-calculator.html">BMI Calculator</a></h1>
 		</div>
 
 		<div class="icon-container">
 		</div>
 
 		<div class="icon-text2">
-			<h1>icon text 2 --></h1>
+			<h1><a href="https://www.calculator.net/calorie-calculator.html">Calorie Calculator</a></h1>
 		</div>
 
 		@* this is the about section *@
-
 		<div class="about_div">
 			<div class="heading_text">
-				<h2>About Us</h2>
+				<h2>
+					<a href="/aboutus">About Us</a>
+				</h2>
 			</div>
+
+
 			<div class="rightlogo-container">
-				<img src="logo.png" alt="logo" class="image">
+				<img src="logo.png" alt="logo" class="icon_main">
 			</div>
 		</div>
 		
+			@* this is just icons for the calculators *@
+			<img src="bmi_cal.png" class="icon" style="left: 75px; top: 1240px;">
+			<img src="calorie_cal.png" class="icon" style="left: 80px; top: 1520px;">
+
+		
+		<a href="https://www.channelnewsasia.com/coronavirus-covid-19"><img src="arrowRight.png" class="icon" style="left: 1100px; top: 170px;"></a>
+		<a href="https://www.healthhub.sg/programmes"><img src="arrowRight.png" class="icon" style="left: 1100px; top: 725px;"></a>
+
 	</div>
-
-	
-
 
 </body>
 

@@ -1,0 +1,88 @@
+﻿.logo-container {
+    left: 220px;
+    top: 10px;
+    width: 100px; /* Set the width of the container */
+    height: 100px; /* Set the height of the container */
+    border-radius: 50%; /* Ensure the container is circular */
+    background-color: lightblue; /* Set the background color of the container */
+    position: absolute; /* Set position to relative for child element positioning */
+    overflow: hidden; /* Ensure content within the container stays within bounds */
+    z-index: 1;
+}
+
+.icon_main {
+    position: absolute;
+    top: 3px; /* Adjust this value to move the image upwards */
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+}
+
+.heading_text {
+    color: white;
+    text-align: center;
+    position: relative; /* Add this line to make z-index work */
+    z-index: 2; /* Set a positive z-index */
+}
+
+.heading_div {
+    position: fixed;
+    width: 100vw;
+    height: 120px;
+    background-color: green;
+    text-align: center;
+    top: 0px;
+    left: 200px;
+    z-index: 0;
+}
+
+.content_aboutUs {
+    text-align: left;
+    position: absolute;
+    z-index: 1;
+    overflow: auto; /* or overflow: hidden; depending on your preference */
+}
+
+.content_div {
+    width: 250px;
+    height: 250px;
+    overflow: auto; /* or overflow: hidden; depending on your preference */
+}
+
+.content_d1 {
+    position: absolute;
+    width: 700px;
+    height: 500px;
+    border: 0px solid #000;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    background-color: antiquewhite;
+    left: 250px;
+    top: 200px;
+    z-index: 1;
+    padding: 75px;
+}
+
+.content_d2 {
+    position: absolute;
+    width: 400px;
+    height: 139px;
+    color: black;
+    text-align: left;
+    background-color: antiquewhite;
+    left: 200px;
+    top: 580px;
+    z-index: 1;
+}
+
+.icon {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 200px;
+    right: 20px;
+    z-index: 1;
+
+
+}
