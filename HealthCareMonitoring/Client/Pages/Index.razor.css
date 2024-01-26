@@ -1,11 +1,4 @@
-﻿.icon {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    z-index: 1;
-}
-
-.heading_text {
+﻿.heading_text {
     color: white;
     text-align: center;
     position: relative; /* Add this line to make z-index work */
@@ -23,50 +16,27 @@
     z-index: 0;
 }
 
-.content_header {
-    position: relative;
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-
 .curved-box {
     position: absolute;
-    width: 350px;
-    height: 350px;
+    width: 450px;
+    height: 450px;
     background-color: #3498db;
     border-radius: 20px; /* Adjust this value to control the amount of curvature */
     padding: 20px;
     color: white;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin: 50px auto; /* Optional: Center the box */
+    top: 200px;
+    left: 300px;
 }
-
-
-.news_content {
-    width: 300px;
-    height: 250px;
-    padding: 10px;
-    object-fit: cover; /* Ensure the image covers the container */
-}
-
 
 .content_div {
     position: relative;
     width: 150px;
     height: 250px;
-    background-color: darkblue;
+    background-color: antiquewhite;
     text-align: center;
     top: 0px;
     left: 0px;
     z-index: 1;
 }
-
-
-
-
-
-
