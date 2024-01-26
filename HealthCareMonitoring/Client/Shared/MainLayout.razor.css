@@ -5,12 +5,15 @@
     background-color: darkblue;
 }
 
+
 main {
     flex: 1;
 }
 
+
+
 .sidebar {
-    background-color: #343a40
+    background-color: #343a40;
 }
 
 .top-row {

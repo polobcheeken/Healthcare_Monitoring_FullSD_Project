@@ -6,9 +6,9 @@
 }
 
 .heading_div {
-    position: absolute;
-    width: 1286px;
-    height: 150px;
+    position: fixed;
+    width: 100vw;
+    height: 120px;
     background-color: green;
     text-align: center;
     top: 0px;
@@ -16,27 +16,49 @@
     z-index: 0;
 }
 
-.curved-box {
-    position: absolute;
-    width: 450px;
-    height: 450px;
-    background-color: #3498db;
-    border-radius: 20px; /* Adjust this value to control the amount of curvature */
-    padding: 20px;
-    color: white;
-    text-align: center;
-    margin: 50px auto; /* Optional: Center the box */
-    top: 200px;
-    left: 300px;
+.content_div {
+    position: fixed;
+    background-color: darkblue;
+    top: 120px;
+    left: 250px;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    z-index: 0;
+    padding: 50px;
 }
 
-.content_div {
+
+.curved-box {
     position: relative;
-    width: 150px;
-    height: 250px;
-    background-color: antiquewhite;
+    width: 300px;
+    height: 300px;
+    background-color: #3498db;
+    border-radius: 20px; /* Adjust this value to control the amount of curvature */
+    color: blue;
     text-align: center;
-    top: 0px;
-    left: 0px;
-    z-index: 1;
+    margin-bottom: 50px;
 }
+
+.right-box {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 400px;
+    top: 50px;
+    background-color: #3498db;
+    border-radius: 20px; /* Adjust this value to control the amount of curvature */
+    color: blue;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.image {
+    max-width: 100%; /* Ensure the image does not exceed the container width */
+    max-height: 100%; /* Ensure the image does not exceed the container height */
+    position: absolute; /* Set position to absolute to position the image within the container */
+    top: 50%; /* Position the image 50% from the top of the container */
+    left: 50%; /* Position the image 50% from the left of the container */
+    transform: translate(-50%, -50%); /* Center the image within the container */
+}
+
