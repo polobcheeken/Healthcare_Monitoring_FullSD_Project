@@ -238,7 +238,7 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = "3781efa7-66dc-47f0-860f-e506d04102e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "78bf9747-0a07-4743-85f9-195bd6e68b75",
+                            ConcurrencyStamp = "2ae4bb8b-7a99-45da-bf01-ab53da6824e7",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -246,17 +246,17 @@ namespace HealthCareMonitoring.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMB8UJ0lrXmRpXChGCQcTdK1oGYf53D3hOoHweF5z+zRGEBiOIOdsKAplYRsNhmiHQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFk4aAmGolU8iKbZREEkJE/rlokt6LZlT5DrcVraAf1vvtYPiBVDAB1AF41ETaeKSA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0f430153-b984-441e-9867-c1f09d2385e3",
+                            SecurityStamp = "0001a4fe-30ed-406a-8a34-5114add15d57",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         },
                         new
                         {
-                            Id = "59107059-2e43-4bf8-a3e6-be3ff8dcbc56",
+                            Id = "5b80a474-b09a-4c57-a73f-ee30838347e7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2ba6852a-bd8e-460c-9ab0-5005ebd0cde6",
+                            ConcurrencyStamp = "cd6f7573-a4fc-4227-9298-eb0a0e94f54c",
                             Email = "test@blazor.com",
                             EmailConfirmed = false,
                             FirstName = "Test",
@@ -264,9 +264,9 @@ namespace HealthCareMonitoring.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@BLAZOR.COM",
                             NormalizedUserName = "TEST@BLAZOR.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKycKs777NBiAdKwFrSSaChON4lOtdCl4J0TtCHcQDkQH+QMa2F3VghV9EqKnsFxSg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBk/C+VvjooAvoZwtP2WcN8Sz+mGDVQGcOwfBhCrIqLL23McX+QYzj62Grl9LvaGYg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2824196a-ed45-4e39-82e4-7bc4bad07367",
+                            SecurityStamp = "a8e8dd8a-f484-469a-8741-d38973d75261",
                             TwoFactorEnabled = false,
                             UserName = "test@blazor.com"
                         });
@@ -283,6 +283,9 @@ namespace HealthCareMonitoring.Server.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
@@ -297,12 +300,12 @@ namespace HealthCareMonitoring.Server.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("PlannedDateTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<int?>("StaffId")
                         .IsRequired()
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -420,8 +423,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 1,
                             Address = "100 Bukit Timah Road",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8549),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8567),
+                            DateCreated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(3779),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(3790),
                             Description = "Specialising in obstetrics, gynaecology, neonatology and paediatrics",
                             Name = "KK Women’s and Children’s Hospital",
                             PostalCode = "Singapore 229899",
@@ -432,8 +435,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 2,
                             Address = "Bukit Merah",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8569),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8570),
+                            DateCreated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(3793),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(3794),
                             Description = "Larget tertiary hospital and ranked among the world's best",
                             Name = "Singapore General Hospital",
                             PostalCode = "Singapore 169608",
@@ -444,8 +447,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 3,
                             Address = "6A Napier Road",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8571),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8572),
+                            DateCreated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(3795),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(3796),
                             Description = "Private institution with comprehensive range of medical care",
                             Name = "Gleneagles Hospital",
                             PostalCode = "Singapore 258500",
@@ -456,8 +459,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 4,
                             Address = "2 Simei Street 3",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8573),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8574),
+                            DateCreated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(3797),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(3798),
                             Description = "1000-bed hospital, always alwayble for emergencies",
                             Name = "Changi General Hospital",
                             PostalCode = "Singapore 529889",
@@ -468,8 +471,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             Id = 5,
                             Address = "3 Mount Elizabeth",
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8575),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8575),
+                            DateCreated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(3799),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(3800),
                             Description = "Singapore's best doctors and provides exceptional personalised medical services",
                             Name = "Mount Elizabeth Hospital",
                             PostalCode = "Singapore 228510",
@@ -533,8 +536,8 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8959),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8960),
+                            DateCreated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(4179),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(4181),
                             Description = "Used for headaches",
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -547,8 +550,8 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8962),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8963),
+                            DateCreated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(4184),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(4184),
                             Description = "Strong Painkiller, Only used when needed",
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -561,8 +564,8 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = 3,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8965),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8965),
+                            DateCreated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(4186),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(4187),
                             Description = "Used to treat anxiety disorders",
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -575,8 +578,8 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = 4,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8967),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8968),
+                            DateCreated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(4189),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(4189),
                             Description = "Used to numb the throat and lungs to make cough reflex less active",
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -589,8 +592,8 @@ namespace HealthCareMonitoring.Server.Migrations
                         {
                             Id = 5,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8969),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 464, DateTimeKind.Local).AddTicks(8970),
+                            DateCreated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(4191),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 84, DateTimeKind.Local).AddTicks(4191),
                             Description = "Used to reduce swelling and itching of allergic reactions",
                             ExpiryDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -672,8 +675,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             CreatedBy = "System",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 601, DateTimeKind.Local).AddTicks(4546),
-                            DateYearJoined = new DateTime(2024, 1, 27, 16, 12, 41, 601, DateTimeKind.Local).AddTicks(4531),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 211, DateTimeKind.Local).AddTicks(5553),
+                            DateYearJoined = new DateTime(2024, 1, 27, 16, 36, 47, 211, DateTimeKind.Local).AddTicks(5539),
                             EmailAddress = "michealtan@blazor.com",
                             FirstName = "Micheal",
                             Gender = "Male",
@@ -689,8 +692,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             CreatedBy = "System",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(2000, 12, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 601, DateTimeKind.Local).AddTicks(4550),
-                            DateYearJoined = new DateTime(2024, 1, 27, 16, 12, 41, 601, DateTimeKind.Local).AddTicks(4549),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 211, DateTimeKind.Local).AddTicks(5559),
+                            DateYearJoined = new DateTime(2024, 1, 27, 16, 36, 47, 211, DateTimeKind.Local).AddTicks(5558),
                             EmailAddress = "johntoh@blazor.com",
                             FirstName = "John",
                             Gender = "Male",
@@ -706,8 +709,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             CreatedBy = "System",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(1994, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 601, DateTimeKind.Local).AddTicks(4556),
-                            DateYearJoined = new DateTime(2024, 1, 27, 16, 12, 41, 601, DateTimeKind.Local).AddTicks(4555),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 211, DateTimeKind.Local).AddTicks(5562),
+                            DateYearJoined = new DateTime(2024, 1, 27, 16, 36, 47, 211, DateTimeKind.Local).AddTicks(5561),
                             EmailAddress = "lilyleow@blazor.com",
                             FirstName = "Lily",
                             Gender = "Female",
@@ -723,8 +726,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             CreatedBy = "System",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(1988, 5, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 601, DateTimeKind.Local).AddTicks(4559),
-                            DateYearJoined = new DateTime(2024, 1, 27, 16, 12, 41, 601, DateTimeKind.Local).AddTicks(4558),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 211, DateTimeKind.Local).AddTicks(5565),
+                            DateYearJoined = new DateTime(2024, 1, 27, 16, 36, 47, 211, DateTimeKind.Local).AddTicks(5564),
                             EmailAddress = "ryantan@blazor.com",
                             FirstName = "Ryan",
                             Gender = "Male",
@@ -740,8 +743,8 @@ namespace HealthCareMonitoring.Server.Migrations
                             CreatedBy = "System",
                             DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(1977, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(2024, 1, 27, 16, 12, 41, 601, DateTimeKind.Local).AddTicks(4561),
-                            DateYearJoined = new DateTime(2024, 1, 27, 16, 12, 41, 601, DateTimeKind.Local).AddTicks(4560),
+                            DateUpdated = new DateTime(2024, 1, 27, 16, 36, 47, 211, DateTimeKind.Local).AddTicks(5567),
+                            DateYearJoined = new DateTime(2024, 1, 27, 16, 36, 47, 211, DateTimeKind.Local).AddTicks(5566),
                             EmailAddress = "nicolelim@blazor.com",
                             FirstName = "Nicole",
                             Gender = "Female",

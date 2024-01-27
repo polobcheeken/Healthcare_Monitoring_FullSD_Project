@@ -63,8 +63,16 @@
         <div class="form-group">
             <label>Planned Date: </label>
             <div>
-                <InputDate @bind-Value="@appointment.PlannedDateTime" class="form-control" />
-                <ValidationMessage For="@(() => appointment.PlannedDateTime)" />
+                <InputDate Type="InputDateType.Date" @bind-Value="@appointment.Date" class="form-control" />
+                <ValidationMessage For="@(() => appointment.Date)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Planned Time: </label>
+            <div>
+                <InputDate Type="InputDateType.Time" @bind-Value="@appointment.Time" class="form-control" />
+                <ValidationMessage For="@(() => appointment.Time)" />
             </div>
         </div>
 
