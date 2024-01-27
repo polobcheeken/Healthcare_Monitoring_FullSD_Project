@@ -24,8 +24,10 @@ else
         <thead>
             <tr>
                 <th>Doctor Name</th>
+                <th>Consultation Start time</th>
+                <th>Consultation End time</th>
                 <th>Consultation Description</th>
-                <th>Consultation Fee</th>
+                <th>Consultation Fee (SGD)</th>
                 <th>Actions</th>
                 
                 
@@ -33,11 +35,13 @@ else
         </thead>
         <tbody>
             @foreach (var consultation in Consultations)
-            {
+            {   
                 <tr>
                     <td>@consultation.Staff.FirstName @consultation.Staff.LastName</td>
+                    <td>@consultation.stTime.ToString("hh:mm tt")</td>
+                    <td>@consultation.endTime.ToString("hh:mm tt")</td>
                     <td>@consultation.Description</td>
-                    <td>@consultation.ConsultationFee</td>
+                    <td>$@consultation.ConsultationFee</td>
 
                     <td>
                         <a href="/consultations/view/@consultation.Id" class="btn btn-primary">

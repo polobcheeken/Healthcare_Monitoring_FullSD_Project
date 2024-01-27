@@ -42,7 +42,7 @@
         <div class="form-group">
             <label>Medicine Manufactered Date: </label>
             <div>
-                <InputDate @bind-Value="@medicine.ManufacturedDate" class="form-control" />
+                <InputDate Type="InputDateType.Date" @bind-Value="@medicine.ManufacturedDate" class="form-control" />
                 <ValidationMessage For="@(() => medicine.ManufacturedDate)" />
             </div>
         </div>
@@ -50,10 +50,14 @@
         <div class="form-group">
             <label>Medicine Expiry Date: </label>
             <div>
-                <InputDate @bind-Value="@medicine.ExpiryDate" class="form-control" />
+                <InputDate Type="InputDateType.Date" @bind-Value="@medicine.ExpiryDate" class="form-control" />
                 <ValidationMessage For="@(() => medicine.ExpiryDate)" />
             </div>
         </div>
+
+       
+
+
         <br/>
         
     </fieldset>

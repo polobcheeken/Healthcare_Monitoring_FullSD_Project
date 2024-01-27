@@ -24,13 +24,11 @@ else
         <thead>
             <tr>
                 <th>Fullname</th>
+                <th>Username</th>
                 <th>Contact No</th>
                 <th>Email Address</th>
                 <th>Gender</th>
-                <th>Username</th>
-                <th>Password</th>
                 <th>Date of Birth</th>
-                <th>Date Joined</th>
                 <th>Actions</th>
                 
                 
@@ -41,13 +39,11 @@ else
             {
                 <tr>
                     <td>@patient.FirstName @patient.LastName</td>
+                    <td>@patient.Username</td>
                     <td>@patient.ContactNo</td>
                     <td>@patient.EmailAddress</td>
                     <td>@patient.Gender</td>
-                    <td>@patient.Username</td>
-                    <td>@patient.Password</td>
-                    <td>@patient.DateOfBirth</td>
-                    <td>@patient.DateYearJoined</td>
+                    <td>@patient.DateOfBirth.ToString("dd/MM/yyyy")</td>
                     
 
                     <td>
