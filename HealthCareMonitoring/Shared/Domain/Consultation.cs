@@ -28,7 +28,6 @@ namespace HealthCareMonitoring.Shared.Domain
         [Required(ErrorMessage = "Please enter the consultation fee")]
         public double? ConsultationFee { get; set; }
 
-        [Required(ErrorMessage = "Please provide a valid start time for the consultation")]
-        public DateTime StartDateTime { get; set; }
+        
     }
 }

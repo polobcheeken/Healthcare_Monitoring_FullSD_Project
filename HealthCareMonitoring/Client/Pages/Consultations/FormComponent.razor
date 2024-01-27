@@ -51,14 +51,6 @@
         </div>
 
         <div class="form-group">
-            <label>Consultation Fee: </label>
-            <div>
-                <InputNumber @bind-Value="@consultation.ConsultationFee" class="form-control" />
-                <ValidationMessage For="@(() => consultation.ConsultationFee)" />
-            </div>
-        </div>
-
-        <div class="form-group">
             <label>Consultation Length (in minutes): </label>
             <div>
                 <InputNumber @bind-Value="@consultation.ConsultationLength" class="form-control" />
@@ -67,15 +59,13 @@
         </div>
 
         <div class="form-group">
-            <label>Consultation Start Time: </label>
+            <label>Consultation Fee: </label>
             <div>
-                <InputDate @bind-Value="@consultation.StartDateTime" class="form-control" />
-                <ValidationMessage For="@(() => consultation.StartDateTime)" />
+                <InputNumber @bind-Value="@consultation.ConsultationFee" class="form-control" />
+                <ValidationMessage For="@(() => consultation.ConsultationFee)" />
             </div>
         </div>
-       
-        
-        
+           
         <br/>
     </fieldset>
 
