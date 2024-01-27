@@ -7,7 +7,7 @@
     <BackToList Target="consultations" />
     <br /><br />
     <fieldset disabled ="@Disabled">
-   
+
         <div class="form-group">
             <label>Doctor Name: </label>
             <div>
@@ -43,18 +43,26 @@
         </div>
 
         <div class="form-group">
-            <label>Consultation Description: </label>
+            <label>Start Time: </label>
             <div>
-                <InputText @bind-Value="@consultation.Description" class="form-control" />
-                <ValidationMessage For="@(() => consultation.Description)" />
+                <InputDate Type="InputDateType.Time" @bind-Value="@consultation.stTime" class="form-control" />
+                <ValidationMessage For="@(() => consultation.stTime)" />
             </div>
         </div>
 
         <div class="form-group">
-            <label>Consultation Length (in minutes): </label>
+            <label>End Time: </label>
             <div>
-                <InputNumber @bind-Value="@consultation.ConsultationLength" class="form-control" />
-                <ValidationMessage For="@(() => consultation.ConsultationLength)" />
+                <InputDate Type="InputDateType.Time" @bind-Value="@consultation.endTime" class="form-control" />
+                <ValidationMessage For="@(() => consultation.endTime)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Consultation Description: </label>
+            <div>
+                <InputText @bind-Value="@consultation.Description" class="form-control" />
+                <ValidationMessage For="@(() => consultation.Description)" />
             </div>
         </div>
 
@@ -65,7 +73,7 @@
                 <ValidationMessage For="@(() => consultation.ConsultationFee)" />
             </div>
         </div>
-           
+ 
         <br/>
     </fieldset>
 

@@ -23,8 +23,10 @@ else
     <table class="table table-responsive" id="consultationsTable">
         <thead>
             <tr>
-                <th>Consultation Id</th>
-                <th>Staff Name</th>
+                <th>Doctor Name</th>
+                <th>Patient Name</th>
+                <th>Consultation Description</th>
+                <th>Consultation Fee</th>
                 <th>Actions</th>
                 
                 
@@ -34,10 +36,10 @@ else
             @foreach (var consultation in Consultations)
             {
                 <tr>
-                    <td>@consultation.Id</td>
                     <td>@consultation.Staff.FirstName @consultation.Staff.LastName</td>
-                    
-                    
+                    <td>@consultation.Appointment.Patient.FirstName @consultation.Appointment.Patient.LastName </td>
+                    <td>@consultation.Description</td>
+                    <td>@consultation.ConsultationFee</td>
 
                     <td>
                         <a href="/consultations/view/@consultation.Id" class="btn btn-primary">

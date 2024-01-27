@@ -22,12 +22,17 @@ namespace HealthCareMonitoring.Shared.Domain
         [StringLength(100, MinimumLength = 3)]
         public string? Description { get; set; }
 
-        [Required(ErrorMessage = "Please input the consultation length")]
-        public int? ConsultationLength { get; set; }
-
         [Required(ErrorMessage = "Please enter the consultation fee")]
         public double? ConsultationFee { get; set; }
 
-        
+        [Required(ErrorMessage = "Please provide a valid date for the appointment")]
+        [DataType(DataType.Time)]
+        public DateTime stTime { get; set; }
+
+        [Required(ErrorMessage = "Please provide a valid time for the appointment")]
+        [DataType(DataType.Time)]
+        public DateTime endTime { get; set; }
+
+
     }
 }
