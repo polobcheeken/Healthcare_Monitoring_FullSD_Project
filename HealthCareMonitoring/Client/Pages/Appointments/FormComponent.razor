@@ -5,8 +5,7 @@
     <ValidationSummary />
 
     <BackToList Target="appointments" />
-    <br/><br/>
-
+    <br /><br />
     <fieldset disabled="@Disabled">
 
         <div class="form-group">
@@ -63,7 +62,7 @@
         <div class="form-group">
             <label>Planned Date: </label>
             <div>
-                <InputDate Type="InputDateType.Date" @bind-Value="@appointment.Date" class="form-control" />
+                <InputDate Type="InputDateType.Date" @bind-Value="@appointment.Date" class="form-control"/>
                 <ValidationMessage For="@(() => appointment.Date)" />
             </div>
         </div>

@@ -34,7 +34,7 @@
                     {
                         foreach (var appointment in Appointments)
                         {
-                            <option value="@appointment.Id"> Patient: @appointment.Patient.FirstName @appointment.Patient.LastName | Date: @appointment.Date.ToString("dd/MM/yyyy") | Time: @appointment.Time.ToString("hh:mm tt")</option>
+                            <option value="@appointment.Id"> Patient: @appointment.Patient.FirstName @appointment.Patient.LastName | Date: @appointment.Date?.ToString("dd/MM/yyyy") | Time: @appointment.Time?.ToString("hh:mm tt")</option>
                         }
                     }
                 </InputSelect>

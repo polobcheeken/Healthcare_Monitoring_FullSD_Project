@@ -27,11 +27,11 @@ namespace HealthCareMonitoring.Shared.Domain
 
         [Required(ErrorMessage = "Please provide a valid date for the appointment")]
         [DataType(DataType.Time)]
-        public DateTime stTime { get; set; }
+        public DateTime? stTime { get; set; }
 
         [Required(ErrorMessage = "Please provide a valid time for the appointment")]
         [DataType(DataType.Time)]
-        public DateTime endTime { get; set; }
+        public DateTime? endTime { get; set; }
 
 
     }

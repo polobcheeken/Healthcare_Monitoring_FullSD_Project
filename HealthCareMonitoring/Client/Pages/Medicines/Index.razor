@@ -41,8 +41,8 @@ else
                     <td>@medicine.Name</td>
                     <td>@medicine.Description</td>
                     <td>@medicine.Type</td>
-                    <td>@medicine.ManufacturedDate</td>
-                    <td>@medicine.ExpiryDate</td>
+                    <td>@medicine.ManufacturedDate?.ToString("dd/MM/yyyy")</td>
+                    <td>@medicine.ExpiryDate?.ToString("dd/MM/yyyy")</td>
                     <td>$@medicine.MedicineFee</td>
 
 

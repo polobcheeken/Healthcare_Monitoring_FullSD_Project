@@ -49,6 +49,6 @@ namespace HealthCareMonitoring.Shared.Domain
 
         [Required]
         [DataType(DataType.Date)]
-        public DateTime DateYearJoined { get; set; }
+        public DateTime? DateYearJoined { get; set; }
     }
 }

@@ -39,8 +39,8 @@ else
                     <td>@appointment.Staff.FirstName @appointment.Staff.LastName</td>
                     <td>@appointment.Patient.FirstName @appointment.Patient.LastName</td>
                     <td>@appointment.Hospital.Name</td>
-                     <td>@appointment.Date.ToString("dd/MM/yyyy")</td>
-                    <td>@appointment.Time.ToString("hh:mm tt")</td>
+                    <td>@appointment.Date?.ToString("dd/MM/yyyy")</td>
+                    <td>@appointment.Time?.ToString("hh:mm tt")</td>
 
                     
 

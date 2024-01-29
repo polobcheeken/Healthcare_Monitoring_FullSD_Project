@@ -38,8 +38,8 @@ else
             {   
                 <tr>
                     <td>@consultation.Staff.FirstName @consultation.Staff.LastName</td>
-                    <td>@consultation.stTime.ToString("hh:mm tt")</td>
-                    <td>@consultation.endTime.ToString("hh:mm tt")</td>
+                    <td>@consultation.stTime?.ToString("hh:mm tt")</td>
+                    <td>@consultation.endTime?.ToString("hh:mm tt")</td>
                     <td>@consultation.Description</td>
                     <td>$@consultation.ConsultationFee</td>
 

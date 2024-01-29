@@ -44,11 +44,11 @@ namespace HealthCareMonitoring.Shared.Domain
 
         [Required(ErrorMessage = "Please provide when you joined HealthCycle")]
         [DataType(DataType.Date)]
-        public DateTime DateYearJoined { get; set; }
+        public DateTime? DateYearJoined { get; set; }
 
         [Required(ErrorMessage = "Please provide your date of birth")]
         [DataType(DataType.Date)]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
 
         public virtual List<Appointment>? Appointments { get; set; }
