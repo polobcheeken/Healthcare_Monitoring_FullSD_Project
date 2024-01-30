@@ -109,6 +109,10 @@
     color: blue;
     text-align: center;
 }
+ .right-boxr1c2:hover{
+     cursor:pointer;
+     transform:scale(1.2);
+ }
 
 .right-boxr1c3 {
     position: absolute;
