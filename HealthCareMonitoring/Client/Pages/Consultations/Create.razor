@@ -9,7 +9,7 @@
 
 <FormComponent ButtonText="Create Consultation" OnValidSubmit="CreateConsultation" consultation="consultation" />
 
-
+@*
 @code {
     Consultation consultation = new Consultation();
 
@@ -20,3 +20,35 @@
     }
 
 }
+*@
+
+@code {
+    Consultation consultation = new Consultation();
+
+    private async Task CreateConsultation()
+    {
+        // Post the consultation data to the server
+        HttpResponseMessage response = await _client.PostAsJsonAsync(Endpoints.ConsultationsEndpoint, consultation);
+
+        // Check if the request was successful
+        if (response.IsSuccessStatusCode)
+        {
+            // Read the response content to get the ID of the newly created consultation
+            string responseContent = await response.Content.ReadAsStringAsync();
+            int newConsultationId = int.Parse(responseContent); // Assuming the ID is returned as an integer
+
+            // Now you can use the newConsultationId as needed
+            Console.WriteLine("Newly created consultation ID: " + newConsultationId);
+
+            // Navigate to the consultations page
+            _navManager.NavigateTo("/consultations/");
+        }
+        else
+        {
+            // Handle the case where the request was not successful
+            // You may want to display an error message or handle the error accordingly
+            Console.WriteLine("Failed to create consultation");
+        }
+    }
+}
+

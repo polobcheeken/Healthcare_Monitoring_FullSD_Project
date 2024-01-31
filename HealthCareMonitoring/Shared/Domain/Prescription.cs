@@ -14,8 +14,6 @@ namespace HealthCareMonitoring.Shared.Domain
         [Required]
         public int? ConsultationId { get; set; }
 
-        [Required(ErrorMessage = "Enter NIL if nothing to write about")]
-        [StringLength(100, MinimumLength = 3)]
         public string? Description { get; set; }
 
 
