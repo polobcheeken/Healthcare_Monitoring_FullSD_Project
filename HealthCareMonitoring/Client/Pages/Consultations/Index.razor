@@ -28,6 +28,7 @@ else
                 <th>Consultation End time</th>
                 <th>Consultation Description</th>
                 <th>Consultation Fee (SGD)</th>
+                <th>View Prescription</th>
                 <th>Actions</th>
                 
                 
@@ -44,15 +45,18 @@ else
                     <td>$@consultation.ConsultationFee</td>
 
                     <td>
+                        <a href="/prescriptions/@(consultation.Id - 1)" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                    </td>
+
+                    <td>
                         <a href="/consultations/view/@consultation.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
                         </a>
                         <a href="/consultations/edit/@consultation.Id" class="btn btn-warning">
                             <span class="oi oi-pencil"></span>
                         </a>
-                        <button class="btn btn-danger" @onclick="@(()=>Delete(consultation.Id))">
-                            <span class="oi oi-delete"></span>
-                        </button>
                     </td>
                 </tr>
             }

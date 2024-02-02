@@ -1,4 +1,4 @@
-﻿@page "/prescriptionItems/create/"
+﻿@page "/prescriptionitems/create/{id:int}"
 @inject HttpClient _client
 @inject NavigationManager _navManager
 
@@ -7,16 +7,19 @@
 <br />
 
 
-<FormComponent ButtonText="Create PrescriptionItem" OnValidSubmit="CreatePrescriptionItem" prescriptionItem="prescriptionItem" />
+<BackToIndex Target="prescriptionitems" Id="Id" />
+<FormComponent ButtonText="Create Prescription Item" OnValidSubmit="CreatePrescriptionItem" prescriptionItem="prescriptionItem" />
 
 
 @code {
     PrescriptionItem prescriptionItem = new PrescriptionItem();
+    [Parameter] public int Id { get; set; }
 
     private async Task CreatePrescriptionItem()
     {
+        prescriptionItem.PrescriptionId = Id;
         await _client.PostAsJsonAsync(Endpoints.PrescriptionItemsEndpoint, prescriptionItem);
-        _navManager.NavigateTo("/prescriptionItems/");
+        _navManager.NavigateTo("/prescriptionitems/"+Id);
     }
 
 }

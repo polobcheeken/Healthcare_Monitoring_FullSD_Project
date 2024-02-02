@@ -10,7 +10,6 @@ namespace HealthCareMonitoring.Shared.Domain
     public class PrescriptionItem : BaseDomainModel
     {
         public virtual Prescription? Prescription { get; set; }
-        [Required]
         public int? PrescriptionId { get; set; }
 
         public virtual Medicine? Medicine { get; set; }

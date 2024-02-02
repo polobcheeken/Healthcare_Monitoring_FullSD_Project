@@ -12,18 +12,21 @@
 
 @code {
     Prescription prescription = new Prescription();
+    int Id { get; set; }
 
     private IList<Consultation>? Consultations;
 
     protected async override Task OnInitializedAsync()
     {
         Consultations = await _client.GetFromJsonAsync<List<Consultation>>($"{Endpoints.ConsultationsEndpoint}");
+        Id = Consultations.Count;
     }
 
     private async Task CreatePrescription()
     {
+        prescription.ConsultationId = Id;
         await _client.PostAsJsonAsync(Endpoints.PrescriptionsEndpoint, prescription);
-        _navManager.NavigateTo("/prescriptions/");
+        _navManager.NavigateTo("/prescriptions/"+(Id-1));
     }
 
 }

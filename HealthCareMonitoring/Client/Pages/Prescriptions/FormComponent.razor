@@ -4,27 +4,11 @@
     <DataAnnotationsValidator />
     <ValidationSummary />
 
-    <BackToList Target="prescriptions" />
+    <BackToIndex Target="prescriptions" Id=prescription.Id-1/>
     <br /><br />
     <fieldset disabled="@Disabled">
-        
-        <div class="form-group">
-            <label>Consultation: </label>
-            <div>
-                <InputSelect @bind-Value="prescription.ConsultationId" class="form-control">
-                    <option value="">-- Select Consultation --</option>
-                    @if (Consultations != null)
-                    {
-                        foreach (var consultation in Consultations)
-                        {
-                            <option value="@consultation.Id">Staff: @consultation.Staff.FirstName @consultation.Staff.LastName</option>
-                        }
-                    }
-                </InputSelect>
-                <ValidationMessage For="@(() => prescription.ConsultationId)" />
-            </div>
-        </div>
 
+        
         <div class="form-group">
             <label>Description: </label>
             <div>
@@ -55,7 +39,6 @@
     [Parameter] public EventCallback OnValidSubmit { get; set; }
 
     private IList<Consultation>? Consultations;
-    
 
     protected async override Task OnInitializedAsync()
     {

@@ -1,4 +1,4 @@
-﻿@page "/prescriptionitems/"
+﻿@page "/prescriptionitems/{id:int}"
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
@@ -6,8 +6,8 @@
 
 <h3 class="card-title">Healthcare Prescription Items</h3>
 <br />
-
-<a href="/prescriptionitems/create" class="btn btn-secondary">
+<BackToIndex Target="prescriptions" Id=(id-1)/>
+<a href="/prescriptionitems/create/@id" class="btn btn-secondary">
     <span class="oi oi-plus"></span>
     Create New Prescription Item
 </a>
@@ -17,13 +17,14 @@
 @if (PrescriptionItems == null)
 {
     <div class="alert alert-info">Loading Prescription Items...</div>
+    <div class="alert alert-info">Currently No Prescription Items Created</div>
 }
 else
 {
     <table class="table table-responsive" id="prescriptionitemsTable">
         <thead>
             <tr>
-                <th>PrescriptionItem Id</th>
+                <th>Medicine Name</th>
                 <th>Medicine Quantity</th>
                 <th>Actions</th>
                 
@@ -33,28 +34,32 @@ else
         <tbody>
             @foreach (var prescriptionitem in PrescriptionItems)
             {
-                <tr>
-                    <td>@prescriptionitem.Id</td>
-                    <td>@prescriptionitem.MedicineQty</td>
+                @if (prescriptionitem.PrescriptionId == id)
+                {
+                    <tr>
+                        <td>@prescriptionitem.Medicine.Name</td>
+                        <td>@prescriptionitem.MedicineQty</td>
 
-					<td>
-                        <a href="/prescriptionitems/view/@prescriptionitem.Id" class="btn btn-primary">
-                            <span class="oi oi-book"></span>
-                        </a>
-                        <a href="/prescriptionitems/edit/@prescriptionitem.Id" class="btn btn-warning">
-                            <span class="oi oi-pencil"></span>
-                        </a>
-                        <button class="btn btn-danger" @onclick="@(()=>Delete(prescriptionitem.Id))">
-                            <span class="oi oi-delete"></span>
-                        </button>
-                    </td>
-                </tr>
+                        <td>
+                            <a href="/prescriptionitems/view/@prescriptionitem.Id" class="btn btn-primary">
+                                <span class="oi oi-book"></span>
+                            </a>
+                            <a href="/prescriptionitems/edit/@prescriptionitem.Id" class="btn btn-warning">
+                                <span class="oi oi-pencil"></span>
+                            </a>
+                            <button class="btn btn-danger" @onclick="@(()=>Delete(prescriptionitem.Id))">
+                                <span class="oi oi-delete"></span>
+                            </button>
+                        </td>
+                    </tr>
+                }
             }
         </tbody>
     </table>
 }
 
 @code {
+    [Parameter] public int id { get; set; }
     private List<PrescriptionItem>? PrescriptionItems;
     private DateTime nullDT = new DateTime(1, 1, 1, 0, 0, 0);
 

@@ -1,19 +1,20 @@
-﻿@page "/prescriptions/"
+﻿@page "/prescriptions/{id:int}"
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
 @implements IDisposable
 
-<h3 class="card-title">Healthcare Prescriptions</h3>
+<h3 class="card-title">Healthcare Consultation Prescriptions</h3>
 <br />
-
+<BackToList Target="consultations" />
+@*
 <a href="/prescriptions/create" class="btn btn-secondary">
     <span class="oi oi-plus"></span>
     Create New Prescription
 </a>
+*@
 <br />
 <br />
-
 @if (Prescriptions == null)
 {
     <div class="alert alert-info">Loading Prescriptions...</div>
@@ -23,46 +24,45 @@ else
     <table class="table table-responsive" id="prescriptionsTable">
         <thead>
             <tr>
-                <th>Prescription Id</th>
                 <th>Description</th>
-                <th>Consultation Id</th>
+                <th>View Prescription Items</th>
                 <th>Actions</th>
-                
-                
+
+
             </tr>
         </thead>
         <tbody>
-            @foreach (var prescription in Prescriptions)
-            {
-                <tr>
-                    <td>@prescription.Id</td>
-                    <td>@prescription.Description</td>
-                    <td>@prescription.ConsultationId</td>
+            <tr>
+                <td>@Prescription.Description</td>
+                <td>
+                    <a href="/prescriptionitems/@Prescription.Id" class="btn btn-primary">
+                        <span class="oi oi-book"></span>
+                    </a>
+                </td>
 
-					<td>
-                        <a href="/prescriptions/view/@prescription.Id" class="btn btn-primary">
-                            <span class="oi oi-book"></span>
-                        </a>
-                        <a href="/prescriptions/edit/@prescription.Id" class="btn btn-warning">
-                            <span class="oi oi-pencil"></span>
-                        </a>
-                        <button class="btn btn-danger" @onclick="@(()=>Delete(prescription.Id))">
-                            <span class="oi oi-delete"></span>
-                        </button>
-                    </td>
-                </tr>
-            }
+                <td>
+                    <a href="/prescriptions/view/@Prescription.Id" class="btn btn-primary">
+                        <span class="oi oi-book"></span>
+                    </a>
+                    <a href="/prescriptions/edit/@Prescription.Id" class="btn btn-warning">
+                        <span class="oi oi-pencil"></span>
+                    </a>
+                </td>
+            </tr>
         </tbody>
     </table>
 }
 
 @code {
+    [Parameter] public int id { get; set; }
     private List<Prescription>? Prescriptions;
+    public Prescription? Prescription;
     private DateTime nullDT = new DateTime(1, 1, 1, 0, 0, 0);
 
     protected async override Task OnInitializedAsync()
     {
         Prescriptions = await _client.GetFromJsonAsync<List<Prescription>>($"{Endpoints.PrescriptionsEndpoint}");
+        Prescription = Prescriptions[id];
     }
 
     async Task Delete(int prescriptionId)

@@ -2,13 +2,19 @@
 @inject HttpClient _client
 @inject NavigationManager _navManager
 
+
 <h3>View PrescriptionItem</h3>
+
+<BackToIndex Target="prescriptionitems" Id="backId" />
 <FormComponent prescriptionItem="prescriptionItem" Disabled="true" />
 @code {
 	[Parameter] public int id { get; set; }
 	PrescriptionItem? prescriptionItem = new PrescriptionItem();
+	private int? backId { get; set; }
+
 	protected async override Task OnParametersSetAsync()
 	{
 		prescriptionItem = await _client.GetFromJsonAsync<PrescriptionItem>($"{Endpoints.PrescriptionItemsEndpoint}/{id}");
+		backId = prescriptionItem.PrescriptionId;
 	}
 }
