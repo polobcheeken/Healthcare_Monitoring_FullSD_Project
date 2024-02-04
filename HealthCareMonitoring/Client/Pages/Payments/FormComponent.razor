@@ -11,7 +11,7 @@
         <div class="form-group">
             <label>Prescription: </label>
             <div>
-                <InputSelect @bind-Value="payment.PrescriptionId" class="form-control">
+                <InputSelect @bind-Value="payment.PrescriptionId" class="form-control" @bind-Value:after="Calculate">
                     <option value="">-- Select Prescription --</option>
                     @if (Prescriptions != null)
                     {
@@ -28,11 +28,25 @@
         <div class="form-group">
             <label>Card Type: </label>
             <div>
-                <InputText @bind-Value="@payment.CardType" class="form-control" />
+                <select @bind="@payment.CardType" class="form-control">
+                    <option value="">-- Select Card Type --</option>
+                    @foreach (var cardType in CardTypes)
+                    {
+                        <option value="@cardType">@cardType</option>
+                    }
+                </select>
                 <ValidationMessage For="@(() => payment.CardType)" />
             </div>
         </div>
 
+        <div class="form-group">
+            <label>Amount Payable: </label>
+            <div>
+                    <div class="form-control">$@TotalFee</div>
+            </div>
+        </div>
+
+        @*
         <div class="form-group">
             <label>Amount to pay: </label>
             <div>
@@ -40,7 +54,7 @@
                 <ValidationMessage For="@(() => payment.AmtPayable)" />
             </div>
         </div>
-
+		*@
         
         <br/>
     </fieldset>
@@ -62,11 +76,46 @@
     [Parameter] public EventCallback OnValidSubmit { get; set; }
 
     private IList<Prescription>? Prescriptions;
-
+    private IList<PrescriptionItem>? PrescriptionItems;
+    private double? TotalFee;
+    private string[] CardTypes = new string[]
+    {
+    "Visa",
+    "MasterCard",
+    "American Express"
+    };
 
     protected async override Task OnInitializedAsync()
     {
         Prescriptions = await _client.GetFromJsonAsync<List<Prescription>>($"{Endpoints.PrescriptionsEndpoint}");
+        PrescriptionItems = await _client.GetFromJsonAsync<List<PrescriptionItem>>($"{Endpoints.PrescriptionItemsEndpoint}");
+        TotalFee = 0.0;
+    }
+
+    async Task Calculate()
+    {
+        TotalFee = 0.0;
+        //Console.WriteLine("Init total fee"+TotalFee);
+        var selectedPresc = Prescriptions.FirstOrDefault(s => s.Id == payment.PrescriptionId);
+        //Get Consultation Fee
+        double? cFee = selectedPresc.Consultation.ConsultationFee;
+        //Console.WriteLine("Consult Fee"+cFee);
+        //Get Total Prescription Item Fee From List
+        double? piFeeTotal = 0.0;
+        //Console.WriteLine("Init PrescItem Fee Total" + piFeeTotal);
+        foreach (var prescItem in PrescriptionItems)
+        {
+            if (prescItem.PrescriptionId == payment.PrescriptionId)
+            {
+                double? piFee = prescItem.MedicineQty * prescItem.Medicine.MedicineFee;
+                piFeeTotal += piFee;
+            }
+        }
+        TotalFee = cFee + piFeeTotal;
+        //Console.WriteLine("Total Fee" + TotalFee);
+        payment.AmtPayable = TotalFee;
+        //Console.WriteLine("Fee set");
+        StateHasChanged();
     }
 
 }

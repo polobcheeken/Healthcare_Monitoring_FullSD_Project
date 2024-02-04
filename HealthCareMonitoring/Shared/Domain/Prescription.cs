@@ -15,8 +15,5 @@ namespace HealthCareMonitoring.Shared.Domain
 
         public string? Description { get; set; }
 
-
-        public virtual List<PrescriptionItem>? PrescriptionItems { get; set; }
-
     }
 }

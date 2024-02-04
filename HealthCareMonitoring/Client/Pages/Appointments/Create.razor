@@ -13,7 +13,6 @@
 @code {
     Appointment appointment = new Appointment();
 
-
     private async Task CreateAppointment()
     {
         await _client.PostAsJsonAsync(Endpoints.AppointmentsEndpoint, appointment);

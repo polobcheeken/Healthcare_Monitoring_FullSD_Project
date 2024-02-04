@@ -23,7 +23,7 @@ else
     <table class="table table-responsive" id="paymentsTable">
         <thead>
             <tr>
-                <th>Payment Id</th>
+                <th>Prescription</th>
                 <th>Card Type</th>
                 <th>Amount Payable</th>
                 <th>Actions</th>
@@ -35,9 +35,9 @@ else
             @foreach (var payment in Payments)
             {
                 <tr>
-                    <td>@payment.Id</td>
+                    <td>@payment.Prescription.Description</td>
                     <td>@payment.CardType</td>
-                    <td>@payment.AmtPayable</td>
+                    <td>$@payment.AmtPayable</td>
                     
                     
 
@@ -48,9 +48,6 @@ else
                         <a href="/payments/edit/@payment.Id" class="btn btn-warning">
                             <span class="oi oi-pencil"></span>
                         </a>
-                        <button class="btn btn-danger" @onclick="@(()=>Delete(payment.Id))">
-                            <span class="oi oi-delete"></span>
-                        </button>
                     </td>
                 </tr>
             }

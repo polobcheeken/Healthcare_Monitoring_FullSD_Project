@@ -11,7 +11,7 @@
         <div class="form-group">
             <label>Staff-In-Charge: </label>
             <div>
-                <InputSelect @bind-Value="appointment.StaffId" class="form-control">
+                <InputSelect @bind-Value="appointment.StaffId" class="form-control" @bind-Value:after="HandleStaffChange">
                     <option value="">-- Select Staff --</option>
                     @if (Staffs != null)
                     {
@@ -22,6 +22,20 @@
                     }
                 </InputSelect>
                 <ValidationMessage For="@(() => appointment.StaffId)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Hospital: </label>
+            <div>
+                @if (staffHospital != null)
+                {
+                    <div class="form-control">@staffHospital.Name</div>
+                }
+                else
+                {
+                    <div class="form-control">Staff Not Selected</div>
+                }
             </div>
         </div>
 
@@ -42,6 +56,7 @@
             </div>
         </div>
 
+        @*
         <div class="form-group">
             <label>Hospital: </label>
             <div>
@@ -58,6 +73,7 @@
                 <ValidationMessage For="@(() => appointment.HospitalId)" />
             </div>
         </div>
+		*@
 
         <div class="form-group">
             <label>Planned Date: </label>
@@ -99,13 +115,24 @@
 
     private IList<Staff>? Staffs;
     private IList<Patient>? Patients;
-    private IList<Hospital>? Hospitals;
+    //private IList<Hospital>? Hospitals;
 
+    private Hospital? staffHospital;
 
     protected async override Task OnInitializedAsync()
     {
         Staffs = await _client.GetFromJsonAsync<List<Staff>>($"{Endpoints.StaffsEndpoint}");
         Patients = await _client.GetFromJsonAsync<List<Patient>>($"{Endpoints.PatientsEndpoint}");
-        Hospitals = await _client.GetFromJsonAsync<List<Hospital>>($"{Endpoints.HospitalsEndpoint}");
+        //Hospitals = await _client.GetFromJsonAsync<List<Hospital>>($"{Endpoints.HospitalsEndpoint}");
+        staffHospital = null;
     }
+
+    async Task HandleStaffChange()
+    {
+        var selectedStaff = Staffs.FirstOrDefault(s => s.Id == appointment.StaffId);
+        staffHospital = selectedStaff.Hospital;
+        appointment.HospitalId = selectedStaff.HospitalId;
+        StateHasChanged();
+    }
+
 }

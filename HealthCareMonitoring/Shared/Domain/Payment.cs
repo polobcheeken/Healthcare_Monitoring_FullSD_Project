@@ -17,8 +17,6 @@ namespace HealthCareMonitoring.Shared.Domain
         [Required(ErrorMessage = "Enter NIL if you pay at stated hospital")]
         [StringLength(100, MinimumLength = 3)]
         public string? CardType { get; set; }
-
-        [Required(ErrorMessage = "Please state the amount payable")]
         public double? AmtPayable { get; set; }
     }
 }

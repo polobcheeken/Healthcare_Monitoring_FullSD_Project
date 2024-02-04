@@ -19,7 +19,6 @@ namespace HealthCareMonitoring.Shared.Domain
         public int? PatientId { get; set; }
         
         public virtual Hospital? Hospital { get; set; }
-        [Required]
         public int? HospitalId { get; set; }
 
         [Required(ErrorMessage = "Please provide a valid date for the appointment")]
