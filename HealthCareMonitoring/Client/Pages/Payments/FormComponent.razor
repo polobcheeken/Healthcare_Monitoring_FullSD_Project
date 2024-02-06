@@ -95,27 +95,22 @@
     async Task Calculate()
     {
         TotalFee = 0.0;
-        //Console.WriteLine("Init total fee"+TotalFee);
-        var selectedPresc = Prescriptions.FirstOrDefault(s => s.Id == payment.PrescriptionId);
+        var selectedPresc = Prescriptions.FirstOrDefault(s => s.Id == payment.PrescriptionId); // get selected prescription
         //Get Consultation Fee
-        double? cFee = selectedPresc.Consultation.ConsultationFee;
-        //Console.WriteLine("Consult Fee"+cFee);
+        double? cFee = selectedPresc.Consultation.ConsultationFee; // get consult fee
         //Get Total Prescription Item Fee From List
-        double? piFeeTotal = 0.0;
-        //Console.WriteLine("Init PrescItem Fee Total" + piFeeTotal);
+        double? prescItemFeeTotal = 0.0;
         foreach (var prescItem in PrescriptionItems)
         {
             if (prescItem.PrescriptionId == payment.PrescriptionId)
             {
                 double? piFee = prescItem.MedicineQty * prescItem.Medicine.MedicineFee;
-                piFeeTotal += piFee;
+                prescItemFeeTotal += piFee;
             }
         }
-        TotalFee = cFee + piFeeTotal;
-        //Console.WriteLine("Total Fee" + TotalFee);
-        payment.AmtPayable = TotalFee;
-        //Console.WriteLine("Fee set");
-        StateHasChanged();
+        TotalFee = cFee + prescItemFeeTotal;
+        payment.AmtPayable = TotalFee; // sets total fee
+        StateHasChanged(); // update ui
     }
 
 }
